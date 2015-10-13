@@ -4,9 +4,69 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="net.androidbootcamp.anagramproject.AboutPage">
+    tools:context="net.androidbootcamp.anagramproject.AboutPage"
+    android:background="#96dffc"
+    android:focusableInTouchMode="false"
+    android:clickable="false">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="About Us"
+        android:id="@+id/textView2"
+        android:layout_marginTop="47dp"
+        android:textSize="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="This anagram app was created by Cherie Parsons, Alexander Sears, Erik Dixon, and Erik Ward."
+        android:id="@+id/textView3"
+        android:minWidth="300dp"
+        android:minHeight="100dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Please rate our app and give us your money! (Also accepting of high paying jobs)"
+        android:id="@+id/textView4"
+        android:minHeight="100dp"
+        android:minWidth="300dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Thank you!"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/backbutton"
+        android:minWidth="100dp"
+        android:minHeight="50dp"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        android:background="#ffffff"
+        android:clickable="true" />
 </RelativeLayout>

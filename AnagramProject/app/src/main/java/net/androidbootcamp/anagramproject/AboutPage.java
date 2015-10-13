@@ -1,9 +1,14 @@
 package net.androidbootcamp.anagramproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
 public class AboutPage extends AppCompatActivity {
 
@@ -11,6 +16,18 @@ public class AboutPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_page);
+
+        Button button1 = (Button) findViewById(R.id.backbutton);
+
+        final Animation anime = AnimationUtils.loadAnimation(this, R.anim.anim_scale_change);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(anime);
+                startActivity(new Intent(AboutPage.this, TitlePage.class));
+            }
+        });
     }
 
     @Override
