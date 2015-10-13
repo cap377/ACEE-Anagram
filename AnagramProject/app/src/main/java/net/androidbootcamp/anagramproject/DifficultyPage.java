@@ -10,43 +10,46 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-//http://android-er.blogspot.com/2012/02/apply-animation-on-button.html
-
-public class TitlePage extends AppCompatActivity {
+public class DifficultyPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_title_page);
+        setContentView(R.layout.activity_difficulty_page);
 
-        Button button1 = (Button) findViewById(R.id.startbutton);
-        Button button2 = (Button) findViewById(R.id.aboutbutton);
+        Button easyButton = (Button) findViewById(R.id.Easybutton);
+        Button mediumButton = (Button) findViewById(R.id.Mediumbutton);
+        Button hardButton = (Button) findViewById(R.id.Hardbutton);
 
         final Animation anime = AnimationUtils.loadAnimation(this, R.anim.anim_scale_change);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        easyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
-                startActivity(new Intent(TitlePage.this, DifficultyPage.class));
+                startActivity(new Intent(DifficultyPage.this, StartPage.class));
             }
         });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-
+        mediumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
-                startActivity(new Intent(TitlePage.this, AboutPage.class));
+                startActivity(new Intent(DifficultyPage.this, StartPage.class));
             }
         });
-
+        hardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(anime);
+                startActivity(new Intent(DifficultyPage.this, StartPage.class));
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_title_page, menu);
+        getMenuInflater().inflate(R.menu.menu_difficulty_page, menu);
         return true;
     }
 
