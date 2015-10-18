@@ -4,13 +4,62 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import org.w3c.dom.Text;
+
 
 public class GameStartPage extends AppCompatActivity {
+
+    public EditText timer;
+    private ButtonClickListener btnClick = new ButtonClickListener();
+    public CountDownTimer myTimer;
+    public int numWrong = 0;
+    public int numRight = 0;
+
+    public void createTimer(){
+
+         myTimer = new CountDownTimer(60000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                timer.setText("Time Remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                numWrong += 1;
+                createTimer();
+
+            }
+
+
+        }.start();
+    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_start_page);
+
+        createTimer();
+
+        timer = (EditText) findViewById(R.id.timer);
+
+
+
+        int idList[] = {R.id.resetbutton};
+
+        for (int id:idList){
+            View v = (View) findViewById(id);
+            v.setOnClickListener(btnClick);
+        }
+
+
     }
 
     @Override
@@ -33,5 +82,21 @@ public class GameStartPage extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private class ButtonClickListener implements View.OnClickListener {
+
+        public void onClick(View v){
+            switch(v.getId()){
+                case R.id.resetbutton:
+                    myTimer.cancel();
+                    createTimer();
+
+                    break;
+
+                default:
+
+                    break;
+            }
+        }
     }
 }
