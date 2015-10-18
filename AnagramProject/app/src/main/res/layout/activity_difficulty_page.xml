@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#003a8a">
+    android:background="@drawable/ocean1">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Easy"
         android:id="@+id/Easybutton"
-        android:background="#4dbc69"
-        android:layout_below="@+id/Selectdifficulty"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="87dp"
+        android:background="@drawable/round_button"
         android:typeface="monospace"
         android:visibility="visible"
         android:singleLine="false"
         android:textSize="20dp"
         android:clickable="true"
-        android:contextClickable="false" />
+        android:contextClickable="false"
+        android:textColor="#07700b"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Medium"
         android:id="@+id/Mediumbutton"
-        android:background="#daff2f"
-        android:layout_below="@+id/Easybutton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:background="@drawable/round_button"
         android:typeface="monospace"
         android:textSize="20dp"
-        android:clickable="true" />
+        android:clickable="true"
+        android:textColor="#8c6310"
+        android:layout_marginTop="43dp"
+        android:layout_below="@+id/Easybutton"
+        android:layout_alignLeft="@+id/Easybutton"
+        android:layout_alignStart="@+id/Easybutton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hard"
         android:id="@+id/Hardbutton"
-        android:background="@android:color/holo_red_light"
-        android:layout_below="@+id/Mediumbutton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:background="@drawable/round_button"
         android:typeface="monospace"
         android:textSize="20dp"
-        android:clickable="true" />
+        android:clickable="true"
+        android:textColor="#f82522"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/Mediumbutton"
+        android:layout_alignLeft="@+id/Mediumbutton"
+        android:layout_alignStart="@+id/Mediumbutton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +58,9 @@
         android:layout_marginTop="71dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:typeface="monospace"
-        android:textColor="#ffffff" />
+        android:typeface="normal"
+        android:textColor="#ffffff"
+        android:background="@drawable/round_background"
+        android:textSize="36dp" />
 
 </RelativeLayout>
