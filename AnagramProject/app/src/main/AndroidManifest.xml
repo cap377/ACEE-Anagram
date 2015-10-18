@@ -21,9 +21,18 @@
             android:label="@string/title_activity_about_page" >
         </activity>
         <activity
-            android:name=".StartPage"
-            android:label="@string/title_activity_start_page" >
+            android:name=".GameStartPage"
+            android:label="GameStartPage" >
         </activity>
+        <activity
+            android:name=".GameEndPage"
+            android:label="GameEndPage" >
+        </activity>
+        <activity
+            android:name=".DifficultyPage"
+            android:label="DifficultyPage" >
+        </activity>
+
     </application>
 
 </manifest>

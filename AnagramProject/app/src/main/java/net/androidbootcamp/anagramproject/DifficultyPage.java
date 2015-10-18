@@ -27,21 +27,21 @@ public class DifficultyPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
-                startActivity(new Intent(DifficultyPage.this, StartPage.class));
+                startActivity(new Intent(DifficultyPage.this, GameStartPage.class));
             }
         });
         mediumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
-                startActivity(new Intent(DifficultyPage.this, StartPage.class));
+                startActivity(new Intent(DifficultyPage.this, GameStartPage.class));
             }
         });
         hardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
-                startActivity(new Intent(DifficultyPage.this, StartPage.class));
+                startActivity(new Intent(DifficultyPage.this, GameStartPage.class));
             }
         });
     }
