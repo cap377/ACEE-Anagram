@@ -1,9 +1,12 @@
 package net.androidbootcamp.anagramproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class GameEndPage extends AppCompatActivity {
 
@@ -11,6 +14,34 @@ public class GameEndPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_end_page);
+
+        Intent intent = getIntent();
+        String info = intent.getStringExtra(GameStartPage.EXTRA_MESSAGE);
+
+        TextView textView = (TextView) findViewById(R.id.textView12);
+        TextView textView1 = (TextView) findViewById(R.id.textView14);
+
+        char[] chars = info.toCharArray();
+
+        int i = 0;
+        String info1 = "";
+        String info2 = "";
+        while(i < chars.length){
+            if(chars[i] == '|'){
+                i++;
+                break;
+            }
+            info1 += chars[i];
+            i++;
+        }
+
+        while(i < chars.length){
+            info2 += chars[i];
+            i++;
+        }
+
+        textView.setText(info1);
+        textView1.setText(info2);
     }
 
     @Override
@@ -33,5 +64,9 @@ public class GameEndPage extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void NavigateBack(View view){
+        startActivity(new Intent(GameEndPage.this, TitlePage.class));
     }
 }

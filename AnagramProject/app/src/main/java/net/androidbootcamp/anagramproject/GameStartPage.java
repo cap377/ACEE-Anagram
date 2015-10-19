@@ -1,16 +1,48 @@
 package net.androidbootcamp.anagramproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
+
+//http://stackoverflow.com/questions/8065532/how-to-randomly-pick-an-element-from-an-array
+//https://developer.android.com/
+//http://www.anagramgenius.com/gem1.html
+//http://stackoverflow.com/questions/8894258/fastest-way-to-iterate-over-all-the-chars-in-a-string
 
 public class GameStartPage extends AppCompatActivity {
+    public final static String EXTRA_MESSAGE = "anagramproject.MESSAGE";
+    public int NumScreens = 10;
+    public int TotalScreens = 0;
+    public int NumRightAnswers = 0;
+    public int DictItem = 0;
+    public String[][] MainArray = {{"Tom marvolo riddle", "I am lord voldemort", "Famous phrase in Harry Potter"},
+            {"The best things in life are free", "Nail biting refreshes the feet", "Keep yo toes out of yo mouth!"},
+            {"The end of the world is nigh", "Down this hole frightened", "Dig your way out!"},
+            {"The meaning of life", "The fine game of nil", "Error - null pointer exception"},
+            {"Public relations", "Crap built on lies", "Speaks for itself"}};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_start_page);
+
+        TextView textView = (TextView) findViewById(R.id.textView6);
+        textView.setText(TotalScreens + "/" + NumScreens);
+
+        DictItem = new Random().nextInt(MainArray.length);
+        TextView textView1 = (TextView) findViewById(R.id.textView7);
+        textView1.setText(MainArray[DictItem][0]);
+
+        TextView textView2 = (TextView) findViewById(R.id.textView8);
+        textView2.setText("Hint: " + MainArray[DictItem][2]);
     }
 
     @Override
@@ -33,5 +65,45 @@ public class GameStartPage extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void checkIfRight(View view){
+
+        EditText editText = (EditText) findViewById(R.id.textView9);
+        String answer = editText.getText().toString();
+
+        if(MainArray[DictItem][1].equals(answer)) {
+            NumRightAnswers += 1;
+            goToNextPage(view);
+            Toast.makeText(GameStartPage.this,"Congrats!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Toast.makeText(GameStartPage.this,"That was not the correct answer", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void goToNextPage(View view){
+        if(TotalScreens >= NumScreens){
+
+            Intent intent = new Intent(GameStartPage.this, GameEndPage.class);
+            intent.putExtra(EXTRA_MESSAGE, NumRightAnswers + "|" + NumScreens);
+            startActivity(intent);
+        }
+        else{
+            TotalScreens += 1;
+            TextView textView = (TextView) findViewById(R.id.textView6);
+            textView.setText(TotalScreens + "/" + NumScreens);
+
+            DictItem = new Random().nextInt(MainArray.length);
+            TextView textView1 = (TextView) findViewById(R.id.textView7);
+            textView1.setText(MainArray[DictItem][0]);
+
+            TextView textView2 = (TextView) findViewById(R.id.textView8);
+            textView2.setText("Hint: " + MainArray[DictItem][2]);
+
+            EditText editText = (EditText) findViewById(R.id.textView9);
+            editText.setText("");
+        }
     }
 }
