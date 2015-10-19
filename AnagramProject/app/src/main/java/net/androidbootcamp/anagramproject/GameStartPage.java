@@ -32,11 +32,25 @@ public class GameStartPage extends AppCompatActivity {
     public int TotalScreens = 0;
     public int NumRightAnswers = 0;
     public int DictItem = 0;
-    public String[][] MainArray = {{"Tom marvolo riddle", "I am lord voldemort", "Famous phrase in Harry Potter"},
-            {"The best things in life are free", "Nail biting refreshes the feet", "Keep yo toes out of yo mouth!"},
-            {"The end of the world is nigh", "Down this hole frightened", "Dig your way out!"},
-            {"The meaning of life", "The fine game of nil", "Error - null pointer exception"},
-            {"Public relations", "Crap built on lies", "Speaks for itself"}};
+    public String[][] MainArray = {{"Tom marvolo riddle", "i am lord voldemort", "Famous phrase in Harry Potter"},
+            {"The best things in life are free", "nail biting refreshes the feet", "Keep yo toes out of yo mouth!"},
+            {"The end of the world is nigh", "down this hole frightened", "Dig your way out!"},
+            {"The meaning of life", "the fine game of nil", "Error - null pointer exception"},
+            {"Public relations", "crap built on lies", "Speaks for itself"},
+            {"estrngi" , "stinger", "Think Bee"},
+            {"ydasrmade", "daydream", "Something you do in class"},
+            {"covryitv", "victory", "Such a sweet taste"},
+            {"taprie", "pirate", "Beware the sea"},
+            {"toblet", "bottle", "Vessel of sorts"},
+            {"reclea", "cereal", "Think morning"},
+            {"keepsar", "speaker", "♪♪♪"},
+            {"meraca", "camera", "Selfie"},
+            {"kibrc", "brick", "She's mighty mighty.."},
+            {"reniwt", "winter", "It's coming"},
+            {"hena cojn", "john cena", "HIS NAME IS"},
+            {"magrpro", "program", "I am your creator"},
+            {"girefd", "fridge", "I am NOT running"},
+            {"letebe", "beetle", "Let it be"}};
 
     public EditText timer;
     public CountDownTimer myTimer;
