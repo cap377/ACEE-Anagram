@@ -69,11 +69,11 @@ public class GameStartPage extends AppCompatActivity {
 
 
         TextView textView = (TextView) findViewById(R.id.textView6);
-        textView.setText(TotalScreens + "/" + NumScreens);
+        textView.setText("Question: " + TotalScreens + "/" + NumScreens);
 
         DictItem = new Random().nextInt(MainArray.length);
         TextView textView1 = (TextView) findViewById(R.id.textView7);
-        textView1.setText(MainArray[DictItem][0]);
+        textView1.setText("Anagram: " + MainArray[DictItem][0]);
 
         TextView textView2 = (TextView) findViewById(R.id.textView8);
         textView2.setText("Hint: " + MainArray[DictItem][2]);
@@ -135,17 +135,17 @@ public class GameStartPage extends AppCompatActivity {
         } else {
             TotalScreens += 1;
             TextView textView = (TextView) findViewById(R.id.textView6);
-            textView.setText(TotalScreens + "/" + NumScreens);
+            textView.setText("Question: " + TotalScreens + "/" + NumScreens);
 
             DictItem = new Random().nextInt(MainArray.length);
             TextView textView1 = (TextView) findViewById(R.id.textView7);
-            textView1.setText(MainArray[DictItem][0]);
+            textView1.setText("Anagram: " + MainArray[DictItem][0]);
 
             TextView textView2 = (TextView) findViewById(R.id.textView8);
-            textView2.setText("Hint: " + MainArray[DictItem][2]);
+            textView2.setText("Hints: " + MainArray[DictItem][2]);
 
             EditText editText = (EditText) findViewById(R.id.textView9);
-            editText.setText("");
+            editText.setText("Insert Answer Here");
             myTimer.cancel();
             createTimer();
         }

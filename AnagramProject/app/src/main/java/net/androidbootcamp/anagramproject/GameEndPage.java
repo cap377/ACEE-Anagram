@@ -69,4 +69,5 @@ public class GameEndPage extends AppCompatActivity {
     public void NavigateBack(View view){
         startActivity(new Intent(GameEndPage.this, TitlePage.class));
     }
+
 }
