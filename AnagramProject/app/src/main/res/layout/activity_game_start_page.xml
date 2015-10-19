@@ -13,7 +13,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Skip"
         android:id="@+id/button2"
         android:onClick = "goToNextPage"
         android:layout_marginBottom="52dp"
@@ -22,7 +21,9 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="48dp"
         android:layout_marginStart="48dp"
-        android:background="@drawable/round_background" />
+        android:background="@drawable/round_background"
+        android:textSize="24dp"
+        android:text="Skip" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -42,23 +43,51 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/round_background"
+        android:textSize="20dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I Got It!"
+        android:text="Submit"
         android:id="@+id/button"
         android:onClick = "checkIfRight"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="92dp" />
+        android:background="@drawable/round_background"
+        android:textSize="20dp"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Words Found: 0"
+        android:id="@+id/wordsFound"
+        android:background="@drawable/round_background"
+        android:textSize="24dp"
+        android:textColor="#ffffff"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignRight="@+id/textView8"
+        android:layout_alignEnd="@+id/textView8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Words Skipped: 0"
+        android:id="@+id/wordsSkipped"
+        android:background="@drawable/round_background"
+        android:textSize="24dp"
+
+        android:textColor="#ffffff"
+        android:layout_above="@+id/wordsFound"
+        android:layout_alignRight="@+id/textView8" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/textView7"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/timer"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical|center_horizontal"
         android:textSize="20sp" />
