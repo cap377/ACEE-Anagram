@@ -17,6 +17,15 @@ import java.util.Random;
 //http://www.anagramgenius.com/gem1.html
 //http://stackoverflow.com/questions/8894258/fastest-way-to-iterate-over-all-the-chars-in-a-string
 
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import org.w3c.dom.Text;
+
+
+
 public class GameStartPage extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "anagramproject.MESSAGE";
     public int NumScreens = 10;
@@ -29,10 +38,35 @@ public class GameStartPage extends AppCompatActivity {
             {"The meaning of life", "The fine game of nil", "Error - null pointer exception"},
             {"Public relations", "Crap built on lies", "Speaks for itself"}};
 
+    public EditText timer;
+    public CountDownTimer myTimer;
+
+
+    public void createTimer(){
+
+         myTimer = new CountDownTimer(60000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                timer.setText("Time Remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                View view = findViewById(R.id.button2);
+                goToNextPage(view);
+            }
+
+
+        }.start();
+    }
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_start_page);
+
 
         TextView textView = (TextView) findViewById(R.id.textView6);
         textView.setText(TotalScreens + "/" + NumScreens);
@@ -43,6 +77,13 @@ public class GameStartPage extends AppCompatActivity {
 
         TextView textView2 = (TextView) findViewById(R.id.textView8);
         textView2.setText("Hint: " + MainArray[DictItem][2]);
+
+        createTimer();
+
+        timer = (EditText) findViewById(R.id.timer);
+
+
+
     }
 
     @Override
@@ -67,6 +108,7 @@ public class GameStartPage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     public void checkIfRight(View view){
 
         EditText editText = (EditText) findViewById(R.id.textView9);
@@ -83,14 +125,14 @@ public class GameStartPage extends AppCompatActivity {
 
     }
 
-    public void goToNextPage(View view){
-        if(TotalScreens >= NumScreens){
+    public void goToNextPage(View view) {
+        if (TotalScreens >= NumScreens) {
 
             Intent intent = new Intent(GameStartPage.this, GameEndPage.class);
             intent.putExtra(EXTRA_MESSAGE, NumRightAnswers + "|" + NumScreens);
+            myTimer.cancel();
             startActivity(intent);
-        }
-        else{
+        } else {
             TotalScreens += 1;
             TextView textView = (TextView) findViewById(R.id.textView6);
             textView.setText(TotalScreens + "/" + NumScreens);
@@ -104,6 +146,9 @@ public class GameStartPage extends AppCompatActivity {
 
             EditText editText = (EditText) findViewById(R.id.textView9);
             editText.setText("");
+            myTimer.cancel();
+            createTimer();
         }
     }
+
 }
