@@ -3,6 +3,7 @@ package net.androidbootcamp.anagramproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +30,7 @@ import org.w3c.dom.Text;
 public class GameStartPage extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "anagramproject.MESSAGE";
     public int NumScreens = 10;
-    public int TotalScreens = 0;
+    public int TotalScreens = 1;
     public int NumRightAnswers = 0;
     public int NumSkipped = 0;
     public int DictItem = 0;
@@ -55,6 +56,7 @@ public class GameStartPage extends AppCompatActivity {
 
     public EditText timer;
     public CountDownTimer myTimer;
+
 
 
     public void createTimer(){
@@ -96,6 +98,7 @@ public class GameStartPage extends AppCompatActivity {
         createTimer();
 
         timer = (EditText) findViewById(R.id.timer);
+
 
 
 
@@ -172,7 +175,8 @@ public class GameStartPage extends AppCompatActivity {
             textView4.setText("Words Skipped: " + NumSkipped);
 
             EditText editText = (EditText) findViewById(R.id.textView9);
-            editText.setText("Insert Answer Here");
+            editText.setText("");
+            editText.setHint("Insert Answer Here");
             myTimer.cancel();
             createTimer();
         }
