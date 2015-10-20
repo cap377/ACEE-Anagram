@@ -31,6 +31,7 @@ public class GameStartPage extends AppCompatActivity {
     public int NumScreens = 10;
     public int TotalScreens = 0;
     public int NumRightAnswers = 0;
+    public int NumSkipped = 0;
     public int DictItem = 0;
     public String[][] MainArray = {{"Tom marvolo riddle", "i am lord voldemort", "Famous phrase in Harry Potter"},
             {"The best things in life are free", "nail biting refreshes the feet", "Keep yo toes out of yo mouth!"},
@@ -139,6 +140,12 @@ public class GameStartPage extends AppCompatActivity {
 
     }
 
+    public void skipPage(View view){
+        NumSkipped += 1;
+
+        goToNextPage(view);
+    }
+
     public void goToNextPage(View view) {
         if (TotalScreens >= NumScreens) {
 
@@ -157,6 +164,12 @@ public class GameStartPage extends AppCompatActivity {
 
             TextView textView2 = (TextView) findViewById(R.id.textView8);
             textView2.setText("Hints: " + MainArray[DictItem][2]);
+
+            TextView textView3 = (TextView) findViewById(R.id.wordsFound);
+            textView3.setText("Words Found: " + NumRightAnswers);
+
+            TextView textView4 = (TextView) findViewById(R.id.wordsSkipped);
+            textView4.setText("Words Skipped: " + NumSkipped);
 
             EditText editText = (EditText) findViewById(R.id.textView9);
             editText.setText("Insert Answer Here");
