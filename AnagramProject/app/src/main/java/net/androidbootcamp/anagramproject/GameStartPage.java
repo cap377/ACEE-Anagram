@@ -27,13 +27,17 @@ import org.w3c.dom.Text;
 
 
 
-public class GameStartPage extends AppCompatActivity {
+public class GameStartPage extends AppCompatActivity{
     public final static String EXTRA_MESSAGE = "anagramproject.MESSAGE";
     public int NumScreens = 10;
     public int TotalScreens = 1;
     public int NumRightAnswers = 0;
     public int NumSkipped = 0;
     public int DictItem = 0;
+
+    public int game_difficulty = DifficultyPage.difficulty;
+
+
     public String[][] MainArray = {{"Tom marvolo riddle", "i am lord voldemort", "Famous phrase in Harry Potter"},
             {"The best things in life are free", "nail biting refreshes the feet", "Keep yo toes out of yo mouth!"},
             {"The end of the world is nigh", "down this hole frightened", "Dig your way out!"},
@@ -53,6 +57,41 @@ public class GameStartPage extends AppCompatActivity {
             {"magrpro", "program", "I am your creator"},
             {"girefd", "fridge", "I am NOT running"},
             {"letebe", "beetle", "Let it be"}};
+
+    public String[][] EasyArray = {{"estrngi" , "stinger", "Think Bee"},
+            {"ydasrmade", "daydream", "Something you do in class"},
+            {"covryitv", "victory", "Such a sweet taste"},
+            {"taprie", "pirate", "Beware the sea"},
+            {"toblet", "bottle", "Vessel of sorts"},
+            {"reclea", "cereal", "Think morning"},
+            {"keepsar", "speaker", "♪♪♪"},
+            {"meraca", "camera", "Selfie"},
+            {"kibrc", "brick", "She's mighty mighty.."},
+            {"reniwt", "winter", "It's coming"},
+            {"magrpro", "program", "I am your creator"},
+            {"girefd", "fridge", "I am NOT running"},
+            {"letebe", "beetle", "Let it be"}};
+
+    public String[][] MediumArray = {{"cajk dan lijl" , "jack and jill", "we just wanted some water.."},
+            {"radht davre", "darth vader", "we can rule the universe together"},
+            {"og emoh", "go home", "What you want to do right now"},
+            {"wro oyur otab", "row your boat", "life is but a dream"},
+            {"epitar hisp", "pirate ship", "stolen, but still awesome"},
+            {"starkeafb", "breakfast", "most important meal"},
+            {"moxobob", "boombox", "portable and loud"},
+            {"fliese itskc", "selfie stick", "don't bring on a roller-coaster"},
+            {"tranima", "martian", "we come in peace"},
+            {"ride flow", "dire wolf", "fluffy and dangerous"},
+            {"icosal tob", "social bot", "you have a friend request"},
+            {"hawssidhre", "dishwasher", "dirty or clean?"},
+            {"rashgerpospe", "grasshopper", "spits 'blood' "}};
+
+    public String[][] HardArray = {{"Tom marvolo riddle", "i am lord voldemort", "Famous phrase in Harry Potter"},
+            {"The best things in life are free", "nail biting refreshes the feet", "Keep yo toes out of yo mouth!"},
+            {"The end of the world is nigh", "down this hole frightened", "Dig your way out!"},
+            {"The meaning of life", "the fine game of nil", "Error - null pointer exception"},
+            {"Public relations", "crap built on lies", "Speaks for itself"}};
+
 
     public EditText timer;
     public CountDownTimer myTimer;
@@ -83,6 +122,17 @@ public class GameStartPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_start_page);
+
+        //create anagram dictionary based on difficulty value
+        if (game_difficulty == 1){
+            MainArray = EasyArray;
+        }
+        if (game_difficulty == 2){
+            MainArray = MediumArray;
+        }
+        if (game_difficulty == 3){
+            MainArray = HardArray;
+        }
 
 
         TextView textView = (TextView) findViewById(R.id.textView6);

@@ -10,7 +10,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import java.security.Policy;
+
 public class DifficultyPage extends AppCompatActivity {
+    static int difficulty = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class DifficultyPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
+                difficulty = 1;
                 startActivity(new Intent(DifficultyPage.this, GameStartPage.class));
             }
         });
@@ -34,6 +38,7 @@ public class DifficultyPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
+                difficulty = 2;
                 startActivity(new Intent(DifficultyPage.this, GameStartPage.class));
             }
         });
@@ -41,6 +46,7 @@ public class DifficultyPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(anime);
+                difficulty = 3;
                 startActivity(new Intent(DifficultyPage.this, GameStartPage.class));
             }
         });
