@@ -3,6 +3,7 @@ package net.androidbootcamp.anagramproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,8 @@ public class GameStartPage extends AppCompatActivity{
     public int NumRightAnswers = 0;
     public int NumSkipped = 0;
     public int DictItem = 0;
+    public Toast correctToast;
+    public Toast incorrectToast;
 
 
     public int game_difficulty = DifficultyPage.difficulty;
@@ -133,8 +136,6 @@ public class GameStartPage extends AppCompatActivity{
                 View view = findViewById(R.id.button2);
                 goToNextPage(view);
             }
-
-
         }.start();
     }
 
@@ -157,7 +158,6 @@ public class GameStartPage extends AppCompatActivity{
             MainArray = HardArray;
         }
 
-
         TextView textView = (TextView) findViewById(R.id.textView6);
         textView.setText("Question: " + TotalScreens + "/" + NumScreens);
 
@@ -172,9 +172,7 @@ public class GameStartPage extends AppCompatActivity{
         textView2.setText("Hint: " + MainArray[DictItem][2]);
 
         createTimer();
-
         timer = (EditText) findViewById(R.id.timer);
-
     }
 
     public void getAnagram(){
@@ -206,7 +204,6 @@ public class GameStartPage extends AppCompatActivity{
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -219,12 +216,15 @@ public class GameStartPage extends AppCompatActivity{
         if(MainArray[DictItem][1].equals(answer)) {
             NumRightAnswers += 1;
             goToNextPage(view);
-            Toast.makeText(GameStartPage.this,"Correct!", Toast.LENGTH_SHORT).show();
+
+            correctToast = Toast.makeText(GameStartPage.this,"Correct!", Toast.LENGTH_SHORT);
+            correctToast.setGravity(Gravity.CENTER,0,0);
+            correctToast.show();
             return;
         }
-
-        Toast.makeText(GameStartPage.this,"Incorrect!", Toast.LENGTH_SHORT).show();
-
+        incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
+        incorrectToast.setGravity(Gravity.CENTER,0,0);
+        incorrectToast.show();
     }
 
     public void skipPage(View view){
