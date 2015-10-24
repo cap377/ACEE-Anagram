@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -218,12 +219,18 @@ public class GameStartPage extends AppCompatActivity{
             goToNextPage(view);
 
             correctToast = Toast.makeText(GameStartPage.this,"Correct!", Toast.LENGTH_SHORT);
-            correctToast.setGravity(Gravity.CENTER,0,0);
+            correctToast.setGravity(Gravity.CENTER,0,-250);
+            ImageView correct = new ImageView(this);
+            correct.setImageResource(R.drawable.correct);
+            correctToast.setView(correct);
             correctToast.show();
             return;
         }
         incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
-        incorrectToast.setGravity(Gravity.CENTER,0,0);
+        incorrectToast.setGravity(Gravity.CENTER,0,-250);
+        ImageView incorrect = new ImageView(this);
+        incorrect.setImageResource(R.drawable.incorrect);
+        incorrectToast.setView(incorrect);
         incorrectToast.show();
     }
 
