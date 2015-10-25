@@ -13,57 +13,21 @@ import com.vstechlab.easyfonts.EasyFonts;
 
 public class GameEndPage extends AppCompatActivity {
 
+    public int number_correct = GameStartPage.correct;
+    public int total_screens = GameStartPage.screens;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_end_page);
 
-        Intent intent = getIntent();
-        String info = intent.getStringExtra(GameStartPage.EXTRA_MESSAGE);
-
-        TextView finishText = (TextView) findViewById(R.id.textView10);
-        finishText.setTypeface(EasyFonts.caviarDreamsBold(this));
-
-        TextView text1 = (TextView) findViewById(R.id.textView11);
-        text1.setTypeface(EasyFonts.caviarDreamsBold(this));
-
         TextView textView = (TextView) findViewById(R.id.textView12);
         textView.setTypeface(EasyFonts.caviarDreamsBold(this));
-
-        TextView text2 = (TextView) findViewById(R.id.textView13);
-        text2.setTypeface(EasyFonts.caviarDreamsBold(this));
-
-        TextView textView1 = (TextView) findViewById(R.id.textView14);
-        textView1.setTypeface(EasyFonts.caviarDreamsBold(this));
-
-        TextView text3 = (TextView) findViewById(R.id.textView15);
-        text3.setTypeface(EasyFonts.caviarDreamsBold(this));
 
         Button mainMenuButton = (Button) findViewById(R.id.button3);
         mainMenuButton.setTypeface(EasyFonts.caviarDreamsBold(this));
 
-
-        char[] chars = info.toCharArray();
-
-        int i = 0;
-        String info1 = "";
-        String info2 = "";
-        while(i < chars.length){
-            if(chars[i] == '|'){
-                i++;
-                break;
-            }
-            info1 += chars[i];
-            i++;
-        }
-
-        while(i < chars.length){
-            info2 += chars[i];
-            i++;
-        }
-
-        textView.setText(info1);
-        textView1.setText(info2);
+        textView.setText("You got:\n" + number_correct + "/" + total_screens +"\nCorrect");
 
     }
 

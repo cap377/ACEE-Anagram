@@ -37,7 +37,7 @@
         android:textSize="20dp"
         android:background="@drawable/round_button"
         android:clickable="true"
-        android:textColor="#76510f"
+        android:textColor="#ad740d"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

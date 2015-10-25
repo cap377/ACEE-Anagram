@@ -16,7 +16,8 @@
         android:clickable="true"
         android:contextClickable="false"
         android:textColor="#07700b"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/Selectdifficulty"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -29,10 +30,10 @@
         android:textSize="20dp"
         android:clickable="true"
         android:textColor="#8c6310"
-        android:layout_marginTop="43dp"
-        android:layout_below="@+id/Easybutton"
+        android:layout_below="@+id/easyDescription"
         android:layout_alignLeft="@+id/Easybutton"
-        android:layout_alignStart="@+id/Easybutton" />
+        android:layout_alignStart="@+id/Easybutton"
+        android:layout_marginTop="42dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -44,8 +45,8 @@
         android:textSize="20dp"
         android:clickable="true"
         android:textColor="#f82522"
-        android:layout_marginTop="41dp"
-        android:layout_below="@+id/Mediumbutton"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/mediumDescription"
         android:layout_alignLeft="@+id/Mediumbutton"
         android:layout_alignStart="@+id/Mediumbutton" />
 
@@ -62,5 +63,41 @@
         android:textColor="#ffffff"
         android:background="@drawable/round_background"
         android:textSize="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Easy: A short scrambled word"
+        android:id="@+id/easyDescription"
+        android:layout_below="@+id/Easybutton"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_background"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium: Up to two longer-length scrambled words"
+        android:id="@+id/mediumDescription"
+        android:layout_below="@+id/Mediumbutton"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_background"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Hard: Multiple difficult scrambled words or phrases"
+        android:id="@+id/hardDescription"
+        android:layout_below="@+id/Hardbutton"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_background"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

@@ -40,6 +40,8 @@ public class GameStartPage extends AppCompatActivity{
     public int DictItem = 0;
     public Toast correctToast;
     public Toast incorrectToast;
+    static int correct;
+    static int screens;
 
 
     public int game_difficulty = DifficultyPage.difficulty;
@@ -232,7 +234,7 @@ public class GameStartPage extends AppCompatActivity{
         //DictItem = new Random().nextInt(MainArray.length);
         TextView anagramText = (TextView) findViewById(R.id.textView7);
         anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
-        anagramText.setText("Anagram: " + MainArray[DictItem][0]);
+        anagramText.setText("Anagram: \n" + MainArray[DictItem][0]);
 
         TextView hintText = (TextView) findViewById(R.id.textView8);
         hintText.setTypeface(EasyFonts.caviarDreamsBold(this));
@@ -302,7 +304,7 @@ public class GameStartPage extends AppCompatActivity{
             goToNextPage(view);
 
             correctToast = Toast.makeText(GameStartPage.this,"Correct!", Toast.LENGTH_SHORT);
-            correctToast.setGravity(Gravity.CENTER,0,-325);
+            correctToast.setGravity(Gravity.CENTER,0,300);
             ImageView correct = new ImageView(this);
             correct.setImageResource(R.drawable.correct);
             correctToast.setView(correct);
@@ -310,7 +312,7 @@ public class GameStartPage extends AppCompatActivity{
             return;
         }
         incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
-        incorrectToast.setGravity(Gravity.CENTER, 0, -325);
+        incorrectToast.setGravity(Gravity.CENTER, 0, 300);
         ImageView incorrect = new ImageView(this);
         incorrect.setImageResource(R.drawable.incorrect);
         incorrectToast.setView(incorrect);
@@ -321,7 +323,7 @@ public class GameStartPage extends AppCompatActivity{
         NumSkipped += 1;
         goToNextPage(view);
         incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
-        incorrectToast.setGravity(Gravity.CENTER, 0, -325);
+        incorrectToast.setGravity(Gravity.CENTER, 0, 300);
         ImageView incorrect = new ImageView(this);
         incorrect.setImageResource(R.drawable.incorrect);
         incorrectToast.setView(incorrect);
@@ -331,7 +333,8 @@ public class GameStartPage extends AppCompatActivity{
     public void goToNextPage(View view) {
         if (TotalScreens >= NumScreens) {
 
-
+            correct = NumRightAnswers;
+            screens = 10;
             Intent intent = new Intent(GameStartPage.this, GameEndPage.class);
             intent.putExtra(EXTRA_MESSAGE, NumRightAnswers + "|" + NumScreens);
             myTimer.cancel();
@@ -346,7 +349,7 @@ public class GameStartPage extends AppCompatActivity{
             //DictItem = new Random().nextInt(MainArray.length);
             TextView anagramText = (TextView) findViewById(R.id.textView7);
             anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
-            anagramText.setText("Anagram: " + MainArray[DictItem][0]);
+            anagramText.setText("Anagram: \n" + MainArray[DictItem][0]);
 
             TextView hintText = (TextView) findViewById(R.id.textView8);
             hintText.setTypeface(EasyFonts.caviarDreamsBold(this));
