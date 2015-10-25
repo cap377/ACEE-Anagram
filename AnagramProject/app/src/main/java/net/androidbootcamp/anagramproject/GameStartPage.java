@@ -121,7 +121,25 @@ public class GameStartPage extends AppCompatActivity{
             {"Eleven Plus Two", "twelve plus one", "Thirteen \n(3 words)", "unread"},
             {"Coins Kept", "in pocket", "The perfect spot \n(2 words)", "unread"},
             {"Alloy immure wry", "will you marry me", "THE question \n(3 words)", "unread"},
-            {"Violence Only You", "you only live once", "The motto \n(4 words)", "unread"},};
+            {"Violence Only You", "you only live once", "The motto \n(4 words)", "unread"},
+            {"Guise Yon Root", "i got your nose", "Childhood trickery \n(4 words)", "unread"},
+            {"Theme Ye Ill Witty", "with my little eye", "I spy \n(4 words)", "unread"},
+            {"Eery Ooh Suits", "tie your shoes", "Childhood lesson \n(3 words)", "unread"},
+            {"Impugned Step", "stepped in gum", "A sticky mess \n(3 words)", "unread"},
+            {"Holder Do Tho", "hold the door", "An act of kindness \n(3 words)", "unread"},
+            {"Beating Eh Moo", "the boogie man", "Nighttime terror \n(3 words)", "unread"},
+            {"Beside Demon Yo", "i need somebody", "Help! \n(3 words)", "unread"},
+            {"Cat Revoke", "take cover", "Attack incoming \n(2 words)", "unread"},
+            {"Tat Orb El Wet", "water bottle", "Popular sport accessory \n(2 words)", "unread"},
+            {"A Back Boa Ram", "barack obama", "President \n(2 words)", "unread"},
+            {"See TVs Job", "steve jobs", "Tech Genius \n(2 words)", "unread"},
+            {"Eh Lone Ion", "hole in one", "Golfer's dream \n(3 words)", "unread"},
+            {"Dam Gnarls", "grand slam", "4 man score \n(2 words)", "unread"},
+            {"Knocked I Is", "on side kick", "Risky football maneuver \n(3 words)", "unread"},
+            {"Fibril Depth", "flip the bird", "Hand signal \n(3 words)", "unread"},
+            {"Cab Yak Groups", "pack your bags", "We're going on vacation \n(3 words)", "unread"},
+            {"Green Ole Tv", "never let go", "Hold on \n(3 words)", "unread"},
+            {"Ray Hid Uh Iron", "harry houdini", "Famous magician \n(2 words)", "unread"}};
 
 
     public EditText timer;
