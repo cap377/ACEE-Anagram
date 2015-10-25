@@ -26,7 +26,7 @@
         android:id="@+id/aboutbutton"
         android:layout_width="150sp"
         android:layout_height="50sp"
-        android:text="About"
+        android:text="Credits"
         android:textSize = "20sp"
         android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"

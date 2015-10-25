@@ -193,7 +193,7 @@ public class GameStartPage extends AppCompatActivity{
 
 
             public void onTick(long millisUntilFinished) {
-                timer.setText("Time Remaining: " + millisUntilFinished / 1000);
+                timer.setText("Time:\n" + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
@@ -302,7 +302,7 @@ public class GameStartPage extends AppCompatActivity{
             goToNextPage(view);
 
             correctToast = Toast.makeText(GameStartPage.this,"Correct!", Toast.LENGTH_SHORT);
-            correctToast.setGravity(Gravity.CENTER,0,-250);
+            correctToast.setGravity(Gravity.CENTER,0,-325);
             ImageView correct = new ImageView(this);
             correct.setImageResource(R.drawable.correct);
             correctToast.setView(correct);
@@ -310,7 +310,7 @@ public class GameStartPage extends AppCompatActivity{
             return;
         }
         incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
-        incorrectToast.setGravity(Gravity.CENTER, 0, -250);
+        incorrectToast.setGravity(Gravity.CENTER, 0, -325);
         ImageView incorrect = new ImageView(this);
         incorrect.setImageResource(R.drawable.incorrect);
         incorrectToast.setView(incorrect);
@@ -319,8 +319,13 @@ public class GameStartPage extends AppCompatActivity{
 
     public void skipPage(View view){
         NumSkipped += 1;
-
         goToNextPage(view);
+        incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
+        incorrectToast.setGravity(Gravity.CENTER, 0, -325);
+        ImageView incorrect = new ImageView(this);
+        incorrect.setImageResource(R.drawable.incorrect);
+        incorrectToast.setView(incorrect);
+        incorrectToast.show();
     }
 
     public void goToNextPage(View view) {
@@ -349,16 +354,16 @@ public class GameStartPage extends AppCompatActivity{
 
             TextView wordsFound = (TextView) findViewById(R.id.wordsFound);
             wordsFound.setTypeface(EasyFonts.caviarDreamsBold(this));
-            wordsFound.setText("Words Found: " + NumRightAnswers);
+            wordsFound.setText("Correct: " + NumRightAnswers);
 
             TextView wordsSkipped = (TextView) findViewById(R.id.wordsSkipped);
             wordsSkipped.setTypeface(EasyFonts.caviarDreamsBold(this));
-            wordsSkipped.setText("Words Skipped: " + NumSkipped);
+            wordsSkipped.setText("Missed: " + NumSkipped);
 
             EditText editText = (EditText) findViewById(R.id.textView9);
             editText.setTypeface(EasyFonts.caviarDreamsBold(this));
             editText.setText("");
-            editText.setHint("Insert Answer Here");
+            editText.setHint("Tap Here To Answer");
             myTimer.cancel();
             createTimer();
         }
