@@ -119,7 +119,9 @@ public class GameStartPage extends AppCompatActivity{
             {"Schoolmaster", "the classroom", "Where they belong (2 words)", "unread"},
             {"Listen", "silent", "What you must be for it to work (1 word)", "unread"},
             {"Eleven Plus Two", "twelve plus one", "Thirteen (3 words)", "unread"},
-            {"Coins Kept", "in pocket", "The perfect spot (2 words)", "unread"}};
+            {"Coins Kept", "in pocket", "The perfect spot (2 words)", "unread"},
+            {"Alloy immure wry", "will you marry me", "THE question (3 words)", "unread"},
+            {"Violence Only You", "you only live once", "The motto (4 words)", "unread"},};
 
 
     public EditText timer;
