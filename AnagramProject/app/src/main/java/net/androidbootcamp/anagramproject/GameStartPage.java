@@ -142,10 +142,10 @@ public class GameStartPage extends AppCompatActivity{
             {"ryeknow", "newyork", "City and state \n(1 word)", "unread"},
             {"capcroupfin", "frappuccino", "Fancy drink \n(1 word)", "unread"},
             {"rodentthrums", "thunderstorm", "Loud weather \n(1 word)", "unread"},
-            {"dubbenk", "bunk bed", "Double decker \n(2 word)", "unread"},
+            {"dubbenk", "bunk bed", "Double decker \n(2 words)", "unread"},
             {"aregrin", "earring", "Shiny accessory \n(1 word)", "unread"},
-            {"sbutcokes", "tube socks", "80s fitness apparel \n(2 word)", "unread"},
-            {"troutckw", "tow truck", "For when you're car breaks \n(2 word)", "unread"},
+            {"sbutcokes", "tube socks", "80s fitness apparel \n(2 words)", "unread"},
+            {"troutckw", "tow truck", "For when you're car breaks \n(2 words)", "unread"},
             {"napspewer", "newspaper", "Morning delivery \n(1 word)", "unread"}};
 
     public String[][] HardArray = {{"Tom Marvolo Riddle", "i am lord voldemort", "Famous phrase in Harry Potter \n(4 words)", "unread"},
