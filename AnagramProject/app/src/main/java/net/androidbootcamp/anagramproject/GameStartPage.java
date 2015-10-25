@@ -96,32 +96,32 @@ public class GameStartPage extends AppCompatActivity{
             {"girefd", "fridge", "I am NOT running \n(1 word)", "unread"},
             {"letebe", "beetle", "Let it be \n(1 word)", "unread"}};
 
-    public String[][] MediumArray = {{"cajk dan lijl" , "jack and jill", "we just wanted some water.. (3 words)", "unread"},
-            {"radht davre", "darth vader", "we can rule the universe together (2 words)", "unread"},
-            {"og emoh", "go home", "What you want to do right now (2 words)", "unread"},
-            {"wro oyur otab", "row your boat", "life is but a dream (3 words)", "unread"},
-            {"epitar hisp", "pirate ship", "stolen, but still awesome (2 words)", "unread"},
-            {"starkeafb", "breakfast", "most important meal (1 word)", "unread"},
-            {"moxobob", "boombox", "portable and loud (1 word)", "unread"},
-            {"fliese itskc", "selfie stick", "don't bring on a roller-coaster (2 words)", "unread"},
-            {"tranima", "martian", "we come in peace (1 word)", "unread"},
-            {"ride flow", "dire wolf", "fluffy and dangerous (2 words)", "unread"},
-            {"icosal tob", "social bot", "you have a friend request (2 words)", "unread"},
-            {"hawssidhre", "dishwasher", "dirty or clean? (2 words)", "unread"},
-            {"rashgerpospe", "grasshopper", "spits 'blood'  (1 word)", "unread"}};
+    public String[][] MediumArray = {{"cajk dan lijl" , "jack and jill", "we just wanted some water.. \n(3 words)", "unread"},
+            {"radht davre", "darth vader", "we can rule the universe together \n(2 words)", "unread"},
+            {"og emoh", "go home", "What you want to do right now \n(2 words)", "unread"},
+            {"wro oyur otab", "row your boat", "life is but a dream \n(3 words)", "unread"},
+            {"epitar hisp", "pirate ship", "stolen, but still awesome \n(2 words)", "unread"},
+            {"starkeafb", "breakfast", "most important meal \n(1 word)", "unread"},
+            {"moxobob", "boombox", "portable and loud \n(1 word)", "unread"},
+            {"fliese itskc", "selfie stick", "don't bring on a roller-coaster \n(2 words)", "unread"},
+            {"tranima", "martian", "we come in peace \n(1 word)", "unread"},
+            {"ride flow", "dire wolf", "fluffy and dangerous \n(2 words)", "unread"},
+            {"icosal tob", "social bot", "you have a friend request \n(2 words)", "unread"},
+            {"hawssidhre", "dishwasher", "dirty or clean? \n(2 words)", "unread"},
+            {"rashgerpospe", "grasshopper", "spits 'blood'  \n(1 word)", "unread"}};
 
-    public String[][] HardArray = {{"Tom Marvolo Riddle", "i am lord voldemort", "Famous phrase in Harry Potter (4 words)", "unread"},
-            {"Old West Action", "clint eastwood", "Make my day... (2 words)", "unread"},
-            {"They see", "the eyes", "Most people have two (2 words)", "unread"},
-            {"A Gentlemen", "elegant man", "Very similar (2 words)", "unread"},
-            {"The Detectives", "detect thieves", "It's what they do (2 words)", "unread"},
-            {"Debit Card" , "bad credit", "If you aren't careful (2 words)", "unread"},
-            {"Schoolmaster", "the classroom", "Where they belong (2 words)", "unread"},
-            {"Listen", "silent", "What you must be for it to work (1 word)", "unread"},
-            {"Eleven Plus Two", "twelve plus one", "Thirteen (3 words)", "unread"},
-            {"Coins Kept", "in pocket", "The perfect spot (2 words)", "unread"},
-            {"Alloy immure wry", "will you marry me", "THE question (3 words)", "unread"},
-            {"Violence Only You", "you only live once", "The motto (4 words)", "unread"},};
+    public String[][] HardArray = {{"Tom Marvolo Riddle", "i am lord voldemort", "Famous phrase in Harry Potter \n(4 words)", "unread"},
+            {"Old West Action", "clint eastwood", "Make my day... \n(2 words)", "unread"},
+            {"They see", "the eyes", "Most people have two \n(2 words)", "unread"},
+            {"A Gentlemen", "elegant man", "Very similar \n(2 words)", "unread"},
+            {"The Detectives", "detect thieves", "It's what they do \n(2 words)", "unread"},
+            {"Debit Card" , "bad credit", "If you aren't careful \n(2 words)", "unread"},
+            {"Schoolmaster", "the classroom", "Where they belong \n(2 words)", "unread"},
+            {"Listen", "silent", "What you must be for it to work \n(1 word)", "unread"},
+            {"Eleven Plus Two", "twelve plus one", "Thirteen \n(3 words)", "unread"},
+            {"Coins Kept", "in pocket", "The perfect spot \n(2 words)", "unread"},
+            {"Alloy immure wry", "will you marry me", "THE question \n(3 words)", "unread"},
+            {"Violence Only You", "you only live once", "The motto \n(4 words)", "unread"},};
 
 
     public EditText timer;
