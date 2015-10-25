@@ -61,6 +61,6 @@
         android:typeface="normal"
         android:textColor="#ffffff"
         android:background="@drawable/round_background"
-        android:textSize="36dp" />
+        android:textSize="32dp" />
 
 </RelativeLayout>

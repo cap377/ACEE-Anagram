@@ -9,18 +9,29 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.vstechlab.easyfonts.EasyFonts;
 
 //http://android-er.blogspot.com/2012/02/apply-animation-on-button.html
 
 public class TitlePage extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title_page);
 
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         Button button1 = (Button) findViewById(R.id.startbutton);
+        button1.setTypeface(EasyFonts.caviarDreamsBold(this));
         Button button2 = (Button) findViewById(R.id.aboutbutton);
+        button2.setTypeface(EasyFonts.caviarDreamsBold(this));
+
 
         final Animation anime = AnimationUtils.loadAnimation(this, R.anim.anim_scale_change);
 

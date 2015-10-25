@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.vstechlab.easyfonts.EasyFonts;
 
 public class GameEndPage extends AppCompatActivity {
 
@@ -18,8 +21,27 @@ public class GameEndPage extends AppCompatActivity {
         Intent intent = getIntent();
         String info = intent.getStringExtra(GameStartPage.EXTRA_MESSAGE);
 
+        TextView finishText = (TextView) findViewById(R.id.textView10);
+        finishText.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView text1 = (TextView) findViewById(R.id.textView11);
+        text1.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         TextView textView = (TextView) findViewById(R.id.textView12);
+        textView.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView text2 = (TextView) findViewById(R.id.textView13);
+        text2.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         TextView textView1 = (TextView) findViewById(R.id.textView14);
+        textView1.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView text3 = (TextView) findViewById(R.id.textView15);
+        text3.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        Button mainMenuButton = (Button) findViewById(R.id.button3);
+        mainMenuButton.setTypeface(EasyFonts.caviarDreamsBold(this));
+
 
         char[] chars = info.toCharArray();
 
@@ -42,6 +64,7 @@ public class GameEndPage extends AppCompatActivity {
 
         textView.setText(info1);
         textView1.setText(info2);
+
     }
 
     @Override

@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:text="Finish!"
         android:id="@+id/textView10"
-        android:gravity="center_vertical|center_horizontal"
+        android:gravity="center"
         android:textSize="60sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -19,18 +19,23 @@
         android:layout_height="wrap_content"
         android:text="You got:"
         android:id="@+id/textView11"
-        android:layout_above="@+id/textView12"
+        android:textSize="30sp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/textView10"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp" />
+        android:background="@drawable/round_background"
+        android:gravity="center"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/textView12"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/textView13"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:background="@drawable/round_background"
+        android:gravity="center"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,8 +43,10 @@
         android:text="Out of:"
         android:id="@+id/textView13"
         android:textSize="30sp"
-        android:layout_above="@+id/textView14"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView12"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_background"
+        android:gravity="center"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +54,9 @@
         android:text="New Text"
         android:id="@+id/textView14"
         android:textSize="50sp"
-        android:layout_above="@+id/textView15"
+        android:background="@drawable/round_background"
+        android:gravity="center"
+        android:layout_below="@+id/textView13"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -56,9 +65,11 @@
         android:text="Correct!"
         android:id="@+id/textView15"
         android:textSize="30sp"
-        android:layout_above="@+id/button3"
-        android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:background="@drawable/round_background"
+        android:layout_below="@+id/textView14"
+        android:gravity="center"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11" />
 
     <Button
         android:layout_width="wrap_content"
@@ -66,7 +77,10 @@
         android:text="Main Menu"
         android:onClick = "NavigateBack"
         android:id="@+id/button3"
+        android:background="@drawable/round_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:textColor="#a17a33" />
 
 </RelativeLayout>

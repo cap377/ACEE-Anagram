@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.vstechlab.easyfonts.EasyFonts;
 
 public class AboutPage extends AppCompatActivity {
 
@@ -17,7 +20,17 @@ public class AboutPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_page);
 
+        TextView aboutTitle = (TextView) findViewById(R.id.textView2);
+        aboutTitle.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView aboutBody1 = (TextView) findViewById(R.id.textView3);
+        aboutBody1.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView aboutBody2 = (TextView) findViewById(R.id.textView4);
+        aboutBody2.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         Button button1 = (Button) findViewById(R.id.backbutton);
+        button1.setTypeface(EasyFonts.caviarDreamsBold(this));
 
         final Animation anime = AnimationUtils.loadAnimation(this, R.anim.anim_scale_change);
 

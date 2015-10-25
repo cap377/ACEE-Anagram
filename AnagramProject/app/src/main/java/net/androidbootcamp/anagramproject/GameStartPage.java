@@ -25,6 +25,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.vstechlab.easyfonts.EasyFonts;
+
 import org.w3c.dom.Text;
 
 
@@ -129,6 +131,7 @@ public class GameStartPage extends AppCompatActivity{
 
          myTimer = new CountDownTimer(60000, 1000) {
 
+
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time Remaining: " + millisUntilFinished / 1000);
             }
@@ -159,21 +162,41 @@ public class GameStartPage extends AppCompatActivity{
             MainArray = HardArray;
         }
 
-        TextView textView = (TextView) findViewById(R.id.textView6);
-        textView.setText("Question: " + TotalScreens + "/" + NumScreens);
+        TextView questionNumber = (TextView) findViewById(R.id.textView6);
+        questionNumber.setTypeface(EasyFonts.caviarDreamsBold(this));
+        questionNumber.setText("Question: " + TotalScreens + "/" + NumScreens);
 
         // anagram grabbed randomly from dictionary
         getAnagram();
 
         //DictItem = new Random().nextInt(MainArray.length);
-        TextView textView1 = (TextView) findViewById(R.id.textView7);
-        textView1.setText("Anagram: " + MainArray[DictItem][0]);
+        TextView anagramText = (TextView) findViewById(R.id.textView7);
+        anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
+        anagramText.setText("Anagram: " + MainArray[DictItem][0]);
 
-        TextView textView2 = (TextView) findViewById(R.id.textView8);
-        textView2.setText("Hint: " + MainArray[DictItem][2]);
+        TextView hintText = (TextView) findViewById(R.id.textView8);
+        hintText.setTypeface(EasyFonts.caviarDreamsBold(this));
+        hintText.setText("Hint: " + MainArray[DictItem][2]);
+
+        TextView wordsFound = (TextView) findViewById(R.id.wordsFound);
+        wordsFound.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView wordsSkipped = (TextView) findViewById(R.id.wordsSkipped);
+        wordsSkipped.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        Button skipButton = (Button) findViewById(R.id.button2);
+        skipButton.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView insertText = (TextView) findViewById(R.id.textView9);
+        insertText.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        Button submitButton = (Button) findViewById(R.id.button);
+        submitButton.setTypeface(EasyFonts.caviarDreamsBold(this));
+
 
         createTimer();
         timer = (EditText) findViewById(R.id.timer);
+        timer.setTypeface(EasyFonts.caviarDreamsBold(this));
     }
 
     public void getAnagram(){
@@ -227,7 +250,7 @@ public class GameStartPage extends AppCompatActivity{
             return;
         }
         incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
-        incorrectToast.setGravity(Gravity.CENTER,0,-250);
+        incorrectToast.setGravity(Gravity.CENTER, 0, -250);
         ImageView incorrect = new ImageView(this);
         incorrect.setImageResource(R.drawable.incorrect);
         incorrectToast.setView(incorrect);
@@ -251,23 +274,29 @@ public class GameStartPage extends AppCompatActivity{
         } else {
             getAnagram();
             TotalScreens += 1;
-            TextView textView = (TextView) findViewById(R.id.textView6);
-            textView.setText("Question: " + TotalScreens + "/" + NumScreens);
+            TextView questionText = (TextView) findViewById(R.id.textView6);
+            questionText.setTypeface(EasyFonts.caviarDreamsBold(this));
+            questionText.setText("Question: " + TotalScreens + "/" + NumScreens);
 
             //DictItem = new Random().nextInt(MainArray.length);
-            TextView textView1 = (TextView) findViewById(R.id.textView7);
-            textView1.setText("Anagram: " + MainArray[DictItem][0]);
+            TextView anagramText = (TextView) findViewById(R.id.textView7);
+            anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
+            anagramText.setText("Anagram: " + MainArray[DictItem][0]);
 
-            TextView textView2 = (TextView) findViewById(R.id.textView8);
-            textView2.setText("Hint: " + MainArray[DictItem][2]);
+            TextView hintText = (TextView) findViewById(R.id.textView8);
+            hintText.setTypeface(EasyFonts.caviarDreamsBold(this));
+            hintText.setText("Hint: " + MainArray[DictItem][2]);
 
-            TextView textView3 = (TextView) findViewById(R.id.wordsFound);
-            textView3.setText("Words Found: " + NumRightAnswers);
+            TextView wordsFound = (TextView) findViewById(R.id.wordsFound);
+            wordsFound.setTypeface(EasyFonts.caviarDreamsBold(this));
+            wordsFound.setText("Words Found: " + NumRightAnswers);
 
-            TextView textView4 = (TextView) findViewById(R.id.wordsSkipped);
-            textView4.setText("Words Skipped: " + NumSkipped);
+            TextView wordsSkipped = (TextView) findViewById(R.id.wordsSkipped);
+            wordsSkipped.setTypeface(EasyFonts.caviarDreamsBold(this));
+            wordsSkipped.setText("Words Skipped: " + NumSkipped);
 
             EditText editText = (EditText) findViewById(R.id.textView9);
+            editText.setTypeface(EasyFonts.caviarDreamsBold(this));
             editText.setText("");
             editText.setHint("Insert Answer Here");
             myTimer.cancel();

@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.vstechlab.easyfonts.EasyFonts;
 
 import java.security.Policy;
 
@@ -20,9 +23,17 @@ public class DifficultyPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_difficulty_page);
 
+        TextView selectDifficulty = (TextView) findViewById(R.id.Selectdifficulty);
+        selectDifficulty.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         Button easyButton = (Button) findViewById(R.id.Easybutton);
+        easyButton.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         Button mediumButton = (Button) findViewById(R.id.Mediumbutton);
+        mediumButton.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         Button hardButton = (Button) findViewById(R.id.Hardbutton);
+        hardButton.setTypeface(EasyFonts.caviarDreamsBold(this));
 
         final Animation anime = AnimationUtils.loadAnimation(this, R.anim.anim_scale_change);
 
