@@ -5,5 +5,4 @@ Anagram Mobile App
 TO DO BEFORE RELEASE:
 - implement sounds
 - add "how to play" page
-- add quit button on main menu
 - add more anagrams to each difficulty dictionary
