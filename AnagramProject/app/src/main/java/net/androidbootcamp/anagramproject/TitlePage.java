@@ -29,8 +29,12 @@ public class TitlePage extends AppCompatActivity {
 
         Button button1 = (Button) findViewById(R.id.startbutton);
         button1.setTypeface(EasyFonts.caviarDreamsBold(this));
+
         Button button2 = (Button) findViewById(R.id.aboutbutton);
         button2.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        Button helpButton = (Button) findViewById(R.id.helpbutton);
+        helpButton.setTypeface(EasyFonts.caviarDreamsBold(this));
 
 
         final Animation anime = AnimationUtils.loadAnimation(this, R.anim.anim_scale_change);
@@ -49,6 +53,15 @@ public class TitlePage extends AppCompatActivity {
             public void onClick(View v) {
                 v.startAnimation(anime);
                 startActivity(new Intent(TitlePage.this, AboutPage.class));
+            }
+        });
+
+        helpButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(anime);
+                startActivity(new Intent(TitlePage.this, HowToPlayPage.class));
             }
         });
 

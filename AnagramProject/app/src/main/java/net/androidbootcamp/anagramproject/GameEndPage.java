@@ -21,13 +21,16 @@ public class GameEndPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_end_page);
 
-        TextView textView = (TextView) findViewById(R.id.textView12);
-        textView.setTypeface(EasyFonts.caviarDreamsBold(this));
+        TextView scoreText = (TextView) findViewById(R.id.textView12);
+        scoreText.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        TextView gameOverText = (TextView) findViewById(R.id.textView10);
+        gameOverText.setTypeface(EasyFonts.caviarDreamsBold(this));
 
         Button mainMenuButton = (Button) findViewById(R.id.button3);
         mainMenuButton.setTypeface(EasyFonts.caviarDreamsBold(this));
 
-        textView.setText("You got:\n" + number_correct + "/" + total_screens +"\nCorrect");
+        scoreText.setText("You got:\n" + number_correct + "/" + total_screens +"\nCorrect");
 
     }
 

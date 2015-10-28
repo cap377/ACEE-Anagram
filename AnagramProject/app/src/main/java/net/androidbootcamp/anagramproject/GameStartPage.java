@@ -1,6 +1,9 @@
 package net.androidbootcamp.anagramproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,8 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.media.MediaPlayer;
 
 import java.util.Random;
 
@@ -43,8 +48,18 @@ public class GameStartPage extends AppCompatActivity{
     static int correct;
     static int screens;
 
+    MediaPlayer correctSound;
+    MediaPlayer wrongSound;
+
 
     public int game_difficulty = DifficultyPage.difficulty;
+
+    private Handler mHandler = new Handler();
+
+
+
+
+
 
 
     public String[][] MainArray = {
@@ -191,11 +206,13 @@ public class GameStartPage extends AppCompatActivity{
 
     public void createTimer(){
 
+
          myTimer = new CountDownTimer(60000, 1000) {
 
 
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time:\n" + millisUntilFinished / 1000);
+
             }
 
             public void onFinish() {
@@ -203,6 +220,15 @@ public class GameStartPage extends AppCompatActivity{
                 goToNextPage(view);
             }
         }.start();
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        getAnagram();
+        createTimer();
+        timer = (EditText) findViewById(R.id.timer);
+        timer.setTypeface(EasyFonts.caviarDreamsBold(this));
     }
 
 
@@ -213,7 +239,12 @@ public class GameStartPage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_start_page);
 
-        //create anagram dictionary based on difficulty value
+
+        //create sounds for right and wrong answers
+        correctSound = MediaPlayer.create(GameStartPage.this, R.raw.positive);
+        wrongSound = MediaPlayer.create(GameStartPage.this, R.raw.negative);
+
+        //set anagram dictionary based on difficulty value chosen by user
         if (game_difficulty == 1){
             MainArray = EasyArray;
         }
@@ -229,7 +260,7 @@ public class GameStartPage extends AppCompatActivity{
         questionNumber.setText("Question: " + TotalScreens + "/" + NumScreens);
 
         // anagram grabbed randomly from dictionary
-        getAnagram();
+       // getAnagram();
 
         //DictItem = new Random().nextInt(MainArray.length);
         TextView anagramText = (TextView) findViewById(R.id.textView7);
@@ -256,14 +287,16 @@ public class GameStartPage extends AppCompatActivity{
         submitButton.setTypeface(EasyFonts.caviarDreamsBold(this));
 
 
-        createTimer();
-        timer = (EditText) findViewById(R.id.timer);
-        timer.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+        //createTimer();
+        //timer = (EditText) findViewById(R.id.timer);
+        //timer.setTypeface(EasyFonts.caviarDreamsBold(this));
     }
 
     public void getAnagram(){
         DictItem = new Random().nextInt(MainArray.length);
         if (MainArray[DictItem][3].equals("read")){
+
             getAnagram();
         }
         else{
@@ -295,9 +328,14 @@ public class GameStartPage extends AppCompatActivity{
 
 
     public void checkIfRight(View view){
+        Context context = this;
+
+        // create vibration capabilities
+        Vibrator vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 
         EditText editText = (EditText) findViewById(R.id.textView9);
         String answer = editText.getText().toString();
+
 
         if(MainArray[DictItem][1].equals(answer)) {
             NumRightAnswers += 1;
@@ -309,6 +347,8 @@ public class GameStartPage extends AppCompatActivity{
             correct.setImageResource(R.drawable.correct);
             correctToast.setView(correct);
             correctToast.show();
+            correctSound.start();
+            vibe.vibrate(50);
             return;
         }
         incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
@@ -317,9 +357,15 @@ public class GameStartPage extends AppCompatActivity{
         incorrect.setImageResource(R.drawable.incorrect);
         incorrectToast.setView(incorrect);
         incorrectToast.show();
+        wrongSound.start();
+        vibe.vibrate(50);
     }
 
     public void skipPage(View view){
+        Context context = this;
+
+        // create vibration capabilities
+        Vibrator vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         NumSkipped += 1;
         goToNextPage(view);
         incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
@@ -328,6 +374,8 @@ public class GameStartPage extends AppCompatActivity{
         incorrect.setImageResource(R.drawable.incorrect);
         incorrectToast.setView(incorrect);
         incorrectToast.show();
+        wrongSound.start();
+        vibe.vibrate(50);
     }
 
     public void goToNextPage(View view) {

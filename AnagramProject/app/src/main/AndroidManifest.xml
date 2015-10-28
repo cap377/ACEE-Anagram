@@ -6,13 +6,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <!-- Splash Screen -->
         <activity
             android:name=".SplashPage"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,25 +25,36 @@
         <!-- Main activity -->
         <activity
             android:name=".TitlePage"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".AboutPage"
-            android:label="@string/title_activity_about_page" >
+            android:label="@string/title_activity_about_page"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GameStartPage"
-            android:label="GameStartPage" >
+            android:label="GameStartPage"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GameEndPage"
-            android:label="GameEndPage" >
+            android:label="GameEndPage"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".DifficultyPage"
-            android:label="DifficultyPage" >
+            android:label="DifficultyPage"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".HowToPlayPage"
+            android:label="HowToPlayPage"
+            android:screenOrientation="portrait">
         </activity>
 
     </application>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 </manifest>

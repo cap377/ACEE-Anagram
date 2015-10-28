@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/lake1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="How To Play"
+        android:id="@+id/instructionsText"
+        android:textSize="50dp"
+        android:background="@drawable/round_background"
+        android:textIsSelectable="false"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The goal of the game is to find a word or phrase that is made up of the letters in the given Anagram before the Timer runs out."
+        android:id="@+id/instructionsText1"
+        android:textSize="18dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_background"
+        android:textColor="#ffffff"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/instructionsText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make sure you press the Submit button once you beleive you have entered the correct solution to the Anagram before the Timer runs out."
+        android:id="@+id/instructionsText2"
+        android:textSize="18dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_background"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/instructionsText1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="If you cannot figure out the solution to your current Anagram, you may press the Skip button to receive the next Anagram immediately. If you press the Skip button, it will count as missed."
+        android:id="@+id/instructionsText3"
+        android:layout_below="@+id/instructionsText2"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:textColor="#ffffff"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_background" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK"
+        android:id="@+id/backbutton"
+        android:layout_below="@+id/instructionsText3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:textSize="46dp"
+        android:background="@drawable/round_button"
+        android:textColor="#83550d" />
+</RelativeLayout>
