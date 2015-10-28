@@ -130,7 +130,36 @@ public class GameStartPage extends AppCompatActivity{
             {"tanir", "train", "On the rails \n(1 word)", "unread"},
             {"ievom", "movie", "Visual experience \n(1 word)", "unread"},
             {"rsdipe", "spider", "Find on web \n(1 word)", "unread"},
-            {"ucsmi", "music", "Audible fun \n(1 word)", "unread"}};
+            {"ucsmi", "music", "Audible fun \n(1 word)", "unread"},
+            // 30
+            {"palpes", "apples", "Keeps the doctor away \n(1 word)", "unread"},
+            {"suites", "tissue", "Nose towel \n(1 word)", "unread"},
+            {"smartest", "mattress", "Sleeping cushion \n(1 word)", "unread"},
+            {"hacir", "chair", "Take a seat \n(1 word)", "unread"},
+            {"palm", "lamp", "Clap on \n(1 word)", "unread"},
+            {"inks", "sink", "Wash your hands \n(1 word)", "unread"},
+            {"tektin", "kitten", "Meow \n(1 word)", "unread"},
+            {"drabe", "bread", "Young toast \n(1 word)", "unread"},
+            {"harts", "trash", "Not recyclable \n(1 word)", "unread"},
+            {"toga", "goat", "Bleats often \n(1 word)", "unread"},
+            // 40
+            {"last", "salt", "Bitter tasting \n(1 word)", "unread"},
+            {"luge", "glue", "Sticky substance \n(1 word)", "unread"},
+            {"apper", "paper", "College ruled \n(1 word)", "unread"},
+            {"sareer", "eraser", "Removes mistakes \n(1 word)", "unread"},
+            {"sargs", "grass", "Needs to be watered \n(1 word)", "unread"},
+            {"swolfer", "flowers", "Spring's bounty \n(1 word)", "unread"},
+            {"reset", "trees", "Oxygen producers \n(1 word)", "unread"},
+            {"nestus", "sunset", "Beautiful to witness \n(1 word)", "unread"},
+            {"uclod", "cloud", "Fluffy water storage \n(1 word)", "unread"},
+            {"troclon", "control", "Take over \n(1 word)", "unread"},
+            // 50
+            {"trid", "dirt", "Worm home \n(1 word)", "unread"},
+            {"dancy", "candy", "Sweet tasting \n(1 word)", "unread"},
+            {"lurer", "ruler", "Size determiner \n(1 word)", "unread"},
+            {"shrub", "brush", "Able to fix messy hair \n(1 word)", "unread"},
+            {"tone", "note", "Paper reminder \n(1 word)", "unread"},};
+            // 55
 
     public String[][] MediumArray = {{"cajk dan lijl" , "jack and jill", "We just wanted some water.. \n(3 words)", "unread"},
             {"radht davre", "darth vader", "We can rule the universe together \n(2 words)", "unread"},
