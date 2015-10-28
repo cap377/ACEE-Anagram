@@ -158,8 +158,65 @@ public class GameStartPage extends AppCompatActivity{
             {"dancy", "candy", "Sweet tasting \n(1 word)", "unread"},
             {"lurer", "ruler", "Size determiner \n(1 word)", "unread"},
             {"shrub", "brush", "Able to fix messy hair \n(1 word)", "unread"},
-            {"tone", "note", "Paper reminder \n(1 word)", "unread"},};
-            // 55
+            {"tone", "note", "Paper reminder \n(1 word)", "unread"},
+            {"oofbtlal", "football", "Not always played with feet \n(1 word)", "unread"},
+            {"rcosce", "soccer", "Popular foot-sport \n(1 word)", "unread"},
+            {"emunbr", "number", "Used for counting \n(1 word)", "unread"},
+            {"tone", "note", "Paper reminder \n(1 word)", "unread"},
+            {"ramrke", "marker", "Writing instrument \n(1 word)", "unread"},
+            {"locro", "color", "Everyone has a favorite \n(1 word)", "unread"},
+            // 60
+            {"rabc", "crab", "Tasty ocean scavenger \n(1 word)", "unread"},
+            {"orkc", "rock", "Hard and strong \n(1 word)", "unread"},
+            {"hklac", "chalk", "Classic teacher tool \n(1 word)", "unread"},
+            {"tskea", "steak", "Delicious meat \n(1 word)", "unread"},
+            {"hummosor", "mushroom", "Fungus \n(1 word)", "unread"},
+            {"erohs", "horse", "Old West transportation \n(1 word)", "unread"},
+            {"staerot", "toaster", "Burns bread \n(1 word)", "unread"},
+            {"elndbre", "blender", "Mixes and dices various things \n(1 word)", "unread"},
+            {"hpnoe", "phone", "What you are looking at \n(1 word)", "unread"},
+            {"npaio", "npaio", "A grand instrument \n(1 word)", "unread"},
+            // 70
+            {"igatur", "guitar", "Has multiple strings \n(1 word)", "unread"},
+            {"rdmu", "drum", "Hit this for a beat \n(1 word)", "unread"},
+            {"sabs", "bass", "D-d-d-d-drop the _____ \n(1 word)", "unread"},
+            {"agem", "game", "For fun \n(1 word)", "unread"},
+            {"edvoi", "video", "Moving photo \n(1 word)", "unread"},
+            {"pilarena", "airplane", "One way to fly \n(1 word)", "unread"},
+            {"rukyte", "turkey", "Gobble gobble \n(1 word)", "unread"},
+            {"muippnk", "pumpkin", "Popular pie \n(1 word)", "unread"},
+            {"ucase", "sauce", "Makes some food even better \n(1 word)", "unread"},
+            {"dohayil", "holiday", "Spent with family \n(1 word)", "unread"},
+            // 80
+            {"poatlp", "laptop", "Portable computer \n(1 word)", "unread"},
+            {"seewart", "sweater", "Warm and possibly ugly \n(1 word)", "unread"},
+            {"ajcekt", "jacket", "worn for warmth \n(1 word)", "unread"},
+            {"oseh", "shoe", "Always sold in pairs \n(1 word)", "unread"},
+            {"botso", "boots", "Durable foot guards \n(1 word)", "unread"},
+            {"onlcw", "clown", "Funny or terrifying \n(1 word)", "unread"},
+            {"idzwra", "wizard", "Not a 'muggle' \n(1 word)", "unread"},
+            {"lwjee", "jewel", "Natural and valuable \n(1 word)", "unread"},
+            {"ogdl", "gold", "Dense and precious \n(1 word)", "unread"},
+            {"lesvir", "silver", "Similar to grey \n(1 word)", "unread"},
+            // 90
+            {"owdo", "wood", "Construction material \n(1 word)", "unread"},
+            {"emtla", "metal", "Music genre \n(1 word)", "unread"},
+            {"hcoocetal", "chocolate", "Brown and tasty \n(1 word)", "unread"},
+            {"gitnh", "night", "Not day \n(1 word)", "unread"},
+            {"ornimgn", "morning", "Before noon \n(1 word)", "unread"},
+            {"apncake", "pancake", "Goes well with syrup \n(1 word)", "unread"},
+            {"aocbn", "bacon", "Many pigs final form \n(1 word)", "unread"},
+            {"nksae", "snake", "Scale covered \n(1 word)", "unread"},
+            {"cibr", "crib", "Baby bed \n(1 word)", "unread"},
+            {"tware", "water", "Necessary to live \n(1 word)", "unread"},};
+            // 100
+
+
+
+
+
+
+
 
     public String[][] MediumArray = {{"cajk dan lijl" , "jack and jill", "We just wanted some water.. \n(3 words)", "unread"},
             {"radht davre", "darth vader", "We can rule the universe together \n(2 words)", "unread"},
