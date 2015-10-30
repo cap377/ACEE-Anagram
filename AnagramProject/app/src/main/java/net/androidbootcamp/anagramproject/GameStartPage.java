@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.media.MediaPlayer;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Random;
 
 //http://stackoverflow.com/questions/8065532/how-to-randomly-pick-an-element-from-an-array
@@ -50,6 +52,10 @@ public class GameStartPage extends AppCompatActivity{
 
     MediaPlayer correctSound;
     MediaPlayer wrongSound;
+
+    public String[][] currentWord;
+    public String[][] currentLetters;
+    public String anagram;
 
 
     public int game_difficulty = DifficultyPage.difficulty;
@@ -249,7 +255,85 @@ public class GameStartPage extends AppCompatActivity{
             {"aregrin", "earring", "Shiny accessory \n(1 word)", "unread"},
             {"sbutcokes", "tube socks", "80s fitness apparel \n(2 words)", "unread"},
             {"troutckw", "tow truck", "For when you're car breaks \n(2 words)", "unread"},
-            {"napspewer", "newspaper", "Morning delivery \n(1 word)", "unread"}};
+            {"napspewer", "newspaper", "Morning delivery \n(1 word)", "unread"},
+            // 30
+            {"snnghviagkit", "thanksgiving", "The day turkeys dread \n(1 word)", "unread"},
+            {"trhcsiasm", "christmas", "Present day \n(1 word)", "unread"},
+            {"lahlonewe", "halloween", "Trick or treat \n(1 word)", "unread"},
+            {"omnlpoyo", "monopoly", "Never play with family \n(1 word)", "unread"},
+            {"ifmileet", "lifetime", "As long as you live \n(1 word)", "unread"},
+            {"scsorwlka  ", "crosswalk", "Watch for children \n(1 word)", "unread"},
+            {"ominolght", "moonlight", "See in the dark \n(1 word)", "unread"},
+            {"sotmeseim", "sometimes", "Not always \n(1 word)", "unread"},
+            {"ftlsribeetu", "butterflies", "Old caterpillars \n(1 word)", "unread"},
+            {"ewaehntarm", "weatherman", "Tries to predict nature \n(1 word)", "unread"},
+            // 40
+            {"caobekbn", "backbone", "You lack this without courage \n(1 word)", "unread"},
+            {"sfiwrorke", "fireworks", "Entertaining explosions \n(1 word)", "unread"},
+            {"drorilaa", "railroad", "Train highway \n(1 word)", "unread"},
+            {"rbthawcok", "throwback", "Old school \n(1 word)", "unread"},
+            {"bcakradw", "grandmother", "Old and sweet \n(1 word)", "unread"},
+            {"eabsaktord", "skateboard", "Needed for a kickflip \n(1 word)", "unread"},
+            {"douedgnunrr", "underground", "Buried \n(1 word)", "unread"},
+            {"oeonhyonm", "honeymoon", "Newly married \n(1 word)", "unread"},
+            {"uomshrentdrt", "thunderstorm", "Loud, gloomy, and wet \n(1 word)", "unread"},
+            {"eaiaplnr", "airplane", "Quick travel method \n(1 word)", "unread"},
+            // 50
+            {"sbeybiattr", "babysitter", "Popular teenage job \n(1 word)", "unread"},
+            {"muhbrgrea", "hamburger", "Cow product \n(1 word)", "unread"},
+            {"ootkthicp", "toothpick", "Oral tool \n(1 word)", "unread"},
+            {"udothwocn", "touchdown", "Worth six points \n(1 word)", "unread"},
+            {"toptoshtea", "toothpaste", "Do not swallow \n(1 word)", "unread"},
+            {"pkaremcae", "pacemaker", "Keeps the blood flowing \n(1 word)", "unread"},
+            {"deewken", "weekend", "Always looking forward to it \n(1 word)", "unread"},
+            {"nueadreg", "underage", "Too young \n(1 word)", "unread"},
+            {"oowbormk", "bookworm", "Love to read \n(1 word)", "unread"},
+            {"krofflit", "forklift", "Heavy lifting machine \n(1 word)", "unread"},
+            // 60
+            {"iefulargd", "lifeguard", "No running!!! \n(1 word)", "unread"},
+            {"eatfrawll", "waterfall", "Niagra Falls \n(1 word)", "unread"},
+            {"obmkoark", "bookmark", "Holds your place \n(1 word)", "unread"},
+            {"rlputaaruens", "supernatural", "Not normal \n(1 word)", "unread"},
+            {"oofkhbles", "bookshelf", "Needs dusting \n(1 word)", "unread"},
+            {"okyeelh", "keyhole", "Peep through to see \n(1 word)", "unread"},
+            {"pkacacbk", "backpack", "Student storage \n(1 word)", "unread"},
+            {"hfreeoad", "forehead", "Between hair and eyes \n(1 word)", "unread"},
+            {"ttoexobk", "textbook", "Learning material \n(1 word)", "unread"},
+            {"ekpdya", "keypad", "Enter your pin \n(1 word)", "unread"},
+            // 70
+            {"dkcsieik", "sidekick", "Hero helper \n(1 word)", "unread"},
+            {"pabakscec", "backspace", "Remove previous key \n(1 word)", "unread"},
+            {"roduengd", "underdog", "Unfavored \n(1 word)", "unread"},
+            {"cbakeirf", "backfire", "Unexpected \n(1 word)", "unread"},
+            {"iatseutmerend", "underestimate", " \n(1 word)", "unread"},
+            {"yieegsth", "eyesight", "If lost, you're lost \n(1 word)", "unread"},
+            {"nsauebth", "sunbathe", "Burning and relaxing \n(1 word)", "unread"},
+            {"aunremdr", "underarm", "Prone to sweat \n(1 word)", "unread"},
+            {"erpuohesr", "superhero", "Has special powers \n(1 word)", "unread"},
+            {"mapireran", "repairman", "Paid to fix \n(1 word)", "unread"},
+            // 80
+            {"jlacacbkk", "blackjack", "Popular game \n(1 word)", "unread"},
+            {"lrlmaobo", "ballroom", "Dancing area \n(1 word)", "unread"},
+            {"elaidned", "deadline", "Due date \n(1 word)", "unread"},
+            {"audtpe", "update", "Keep in the loop \n(1 word)", "unread"},
+            {"higerfiterf", "firefighter", "Sprays water, saves kittens \n(1 word)", "unread"},
+            {"wiranob", "rainbow", "Seven colors and bent \n(1 word)", "unread"},
+            {"edagurp", "upgrade", "Gets better \n(1 word)", "unread"},
+            {"nerfdipsih", "friendship", "What friends have \n(1 word)", "unread"},
+            {"clraopo", "carpool", "Drive together \n(1 word)", "unread"},
+            {"cponumig", "upcoming", "Soon \n(1 word)", "unread"},
+            // 90
+            {"olbktacu", "blackout", "Drink too much \n(1 word)", "unread"},
+            {"txacbia", "taxicab", "Whistle to call over \n(1 word)", "unread"},
+            {"serpupace", "uppercase", "LIKE THIS \n(1 word)", "unread"},
+            {"sihdrwate", "dishwater", "Held in sink \n(1 word)", "unread"},
+            {"crtpora", "carport", "Where the car sleeps \n(1 word)", "unread"},
+            {"potruo", "uproot", "Pull out \n(1 word)", "unread"},
+            {"cdbaardro", "cardboard", "Box material \n(1 word)", "unread"},
+            {"wcetrhael", "cartwheel", "Gymnastic move \n(1 word)", "unread"},
+            {"atweomrk", "teamwork", "Done together \n(1 word)", "unread"},
+            {"eacerrfe", "carefree", "No worries \n(1 word)", "unread"},};
+            // 100
 
     public String[][] HardArray = {{"Tom Marvolo Riddle", "i am lord voldemort", "Famous phrase in Harry Potter \n(4 words)", "unread"},
             {"Old West Action", "clint eastwood", "Make my day... \n(2 words)", "unread"},
@@ -348,10 +432,11 @@ public class GameStartPage extends AppCompatActivity{
         // anagram grabbed randomly from dictionary
        // getAnagram();
 
-        //DictItem = new Random().nextInt(MainArray.length);
+        DictItem = new Random().nextInt(MainArray.length);
         TextView anagramText = (TextView) findViewById(R.id.textView7);
         anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
-        anagramText.setText("Anagram: \n" + MainArray[DictItem][0]);
+        String anagram = MainArray[DictItem][0];
+        anagramText.setText("Anagram: \n" + anagram);
 
         TextView hintText = (TextView) findViewById(R.id.textView8);
         hintText.setTypeface(EasyFonts.caviarDreamsBold(this));
@@ -450,6 +535,8 @@ public class GameStartPage extends AppCompatActivity{
     public void skipPage(View view){
         Context context = this;
 
+
+
         // create vibration capabilities
         Vibrator vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         NumSkipped += 1;
@@ -474,6 +561,7 @@ public class GameStartPage extends AppCompatActivity{
             myTimer.cancel();
             startActivity(intent);
         } else {
+
             getAnagram();
             TotalScreens += 1;
             TextView questionText = (TextView) findViewById(R.id.textView6);
@@ -483,7 +571,9 @@ public class GameStartPage extends AppCompatActivity{
             //DictItem = new Random().nextInt(MainArray.length);
             TextView anagramText = (TextView) findViewById(R.id.textView7);
             anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
-            anagramText.setText("Anagram: \n" + MainArray[DictItem][0]);
+            String anagram = MainArray[DictItem][0];
+            anagramText.setText("Anagram: \n" + anagram);
+
 
             TextView hintText = (TextView) findViewById(R.id.textView8);
             hintText.setTypeface(EasyFonts.caviarDreamsBold(this));
