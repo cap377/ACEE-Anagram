@@ -395,7 +395,7 @@ public class GameStartPage extends AppCompatActivity{
     @Override
     protected void onStart(){
         super.onStart();
-        getAnagram();
+        //getAnagram();
         createTimer();
         timer = (EditText) findViewById(R.id.timer);
         timer.setTypeface(EasyFonts.caviarDreamsBold(this));
@@ -430,13 +430,12 @@ public class GameStartPage extends AppCompatActivity{
         questionNumber.setText("Question: " + TotalScreens + "/" + NumScreens);
 
         // anagram grabbed randomly from dictionary
-       // getAnagram();
+        getAnagram();
 
-        DictItem = new Random().nextInt(MainArray.length);
+        //DictItem = new Random().nextInt(MainArray.length);
         TextView anagramText = (TextView) findViewById(R.id.textView7);
         anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
-        String anagram = MainArray[DictItem][0];
-        anagramText.setText("Anagram: \n" + anagram);
+        anagramText.setText("Anagram: \n" + MainArray[DictItem][0]);
 
         TextView hintText = (TextView) findViewById(R.id.textView8);
         hintText.setTypeface(EasyFonts.caviarDreamsBold(this));
@@ -571,8 +570,7 @@ public class GameStartPage extends AppCompatActivity{
             //DictItem = new Random().nextInt(MainArray.length);
             TextView anagramText = (TextView) findViewById(R.id.textView7);
             anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
-            String anagram = MainArray[DictItem][0];
-            anagramText.setText("Anagram: \n" + anagram);
+            anagramText.setText("Anagram: \n" + MainArray[DictItem][0]);
 
 
             TextView hintText = (TextView) findViewById(R.id.textView8);
