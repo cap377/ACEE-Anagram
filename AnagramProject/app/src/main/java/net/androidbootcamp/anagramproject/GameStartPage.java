@@ -443,7 +443,7 @@ public class GameStartPage extends AppCompatActivity{
             {"imswignm wthi het ssfihe", "swimming with the fishes", "Dead \n(4 words)", "unread"},
             {"itme rof dbe", "time for bed", "Dreaded parental phrase \n(3 words)", "unread"},
             {"lsbebaal yaperl", "baseball player", "Paid to hit and run \n(2 words)", "unread"},
-            {"sburh oruy ttehe", "brush your teeth", "Cavity free \n(3 words)", "unread"},
+            {"sburh oruy ttehe", "brush your teeth", "Cavity free \n(3 words)", "unread"},};
             //100
 
 
