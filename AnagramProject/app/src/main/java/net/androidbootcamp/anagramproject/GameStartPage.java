@@ -45,8 +45,8 @@ public class GameStartPage extends AppCompatActivity{
     public int NumRightAnswers = 0;
     public int NumSkipped = 0;
     public int DictItem = 0;
-    public Toast correctToast;
-    public Toast incorrectToast;
+    public static Toast correctToast = null;
+    public static Toast incorrectToast = null;
     static int correct;
     static int screens;
 
@@ -216,11 +216,6 @@ public class GameStartPage extends AppCompatActivity{
             {"cibr", "crib", "Baby bed \n(1 word)", "unread"},
             {"tware", "water", "Necessary to live \n(1 word)", "unread"},};
             // 100
-
-
-
-
-
 
 
 
@@ -454,15 +449,11 @@ public class GameStartPage extends AppCompatActivity{
 
     public void createTimer(){
 
-
          myTimer = new CountDownTimer(60000, 1000) {
-
 
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time:\n" + millisUntilFinished / 1000);
-
             }
-
             public void onFinish() {
                 View view = findViewById(R.id.button2);
                 goToNextPage(view);
@@ -589,22 +580,12 @@ public class GameStartPage extends AppCompatActivity{
             NumRightAnswers += 1;
             goToNextPage(view);
 
-            correctToast = Toast.makeText(GameStartPage.this,"Correct!", Toast.LENGTH_SHORT);
-            correctToast.setGravity(Gravity.CENTER,0,300);
-            ImageView correct = new ImageView(this);
-            correct.setImageResource(R.drawable.correct);
-            correctToast.setView(correct);
-            correctToast.show();
+            showCorrectToast("Correct");
             correctSound.start();
             vibe.vibrate(50);
             return;
         }
-        incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
-        incorrectToast.setGravity(Gravity.CENTER, 0, 300);
-        ImageView incorrect = new ImageView(this);
-        incorrect.setImageResource(R.drawable.incorrect);
-        incorrectToast.setView(incorrect);
-        incorrectToast.show();
+        showIncorrectToast("Incorrect");
         wrongSound.start();
         vibe.vibrate(50);
     }
@@ -612,25 +593,56 @@ public class GameStartPage extends AppCompatActivity{
     public void skipPage(View view){
         Context context = this;
 
-
-
         // create vibration capabilities
         Vibrator vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         NumSkipped += 1;
         goToNextPage(view);
-        incorrectToast = Toast.makeText(GameStartPage.this,"Incorrect! Try Again!", Toast.LENGTH_SHORT);
-        incorrectToast.setGravity(Gravity.CENTER, 0, 300);
-        ImageView incorrect = new ImageView(this);
-        incorrect.setImageResource(R.drawable.incorrect);
-        incorrectToast.setView(incorrect);
-        incorrectToast.show();
+        showIncorrectToast("Incorrect");
         wrongSound.start();
         vibe.vibrate(50);
     }
 
+    public void showCorrectToast(String msg)
+    {
+        if(correctToast!=null){
+            correctToast.cancel();
+            correctToast = null;
+        }
+        if(correctToast == null){
+            ImageView correct = new ImageView(this);
+            correct.setImageResource(R.drawable.correct);
+            correctToast = Toast.makeText(this,msg,Toast.LENGTH_SHORT);
+            correctToast.setGravity(Gravity.CENTER, 0, 300);
+            correctToast.setView(correct);
+            correctToast.show();
+        }
+    }
+
+    public void showIncorrectToast(String msg)
+    {
+        if(incorrectToast!=null){
+            incorrectToast.cancel();
+            incorrectToast = null;
+        }
+        if(incorrectToast == null){
+            ImageView incorrect = new ImageView(this);
+            incorrect.setImageResource(R.drawable.incorrect);
+            incorrectToast = Toast.makeText(this,msg,Toast.LENGTH_SHORT);
+            incorrectToast.setGravity(Gravity.CENTER, 0, 300);
+            incorrectToast.setView(incorrect);
+            incorrectToast.show();
+        }
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+    }
+
     public void goToNextPage(View view) {
         if (TotalScreens >= NumScreens) {
-
+            
             correct = NumRightAnswers;
             screens = 10;
             Intent intent = new Intent(GameStartPage.this, GameEndPage.class);
