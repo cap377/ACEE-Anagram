@@ -53,6 +53,10 @@
             android:label="HowToPlayPage"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".StatisticsPage"
+            android:label="StatisticsPage"
+            android:screenOrientation="portrait">
+        </activity>
 
     </application>
     <uses-permission android:name="android.permission.VIBRATE" />

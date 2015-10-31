@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Created by \nACE Applications - 2015.\n\n ACE Applications consists of Alexander Sears, Cherie Parsons, and Erik Dixon.\n\n Thank you for trying our app."
+        android:text="Created by \nACE Applications - 2015.\n\n ACE Applications consists of Alexander Sears, Cherie Parsons, and Erik Dixon.\n\n Thank you for trying our app.\n"
         android:id="@+id/textView3"
         android:minWidth="300dp"
         android:minHeight="100dp"
@@ -22,14 +22,13 @@
         android:textColor="#ffffff"
         android:visibility="visible"
         android:typeface="normal"
-        android:layout_marginBottom="46dp"
         android:layout_above="@+id/backbutton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="Back"
         android:id="@+id/backbutton"
         android:minWidth="100dp"

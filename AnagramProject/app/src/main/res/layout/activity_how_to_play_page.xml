@@ -56,8 +56,8 @@
         android:background="@drawable/round_background" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:text="BACK"
         android:id="@+id/backbutton"
         android:layout_below="@+id/instructionsText3"
@@ -65,5 +65,5 @@
         android:layout_marginTop="41dp"
         android:textSize="46dp"
         android:background="@drawable/round_button"
-        android:textColor="#83550d" />
+        android:textColor="#ad740d" />
 </RelativeLayout>

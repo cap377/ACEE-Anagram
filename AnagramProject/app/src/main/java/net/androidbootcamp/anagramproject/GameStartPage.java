@@ -2,8 +2,10 @@ package net.androidbootcamp.anagramproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -49,13 +51,17 @@ public class GameStartPage extends AppCompatActivity{
     public static Toast incorrectToast = null;
     static int correct;
     static int screens;
+    public int gamesPlayed = 0;
+    public int wordsFound = 0;
+    public int wordsMissed = 0;
 
     MediaPlayer correctSound;
     MediaPlayer wrongSound;
 
-    public String[][] currentWord;
-    public String[][] currentLetters;
-    public String anagram;
+    //Context context = getApplicationContext();
+
+    public SharedPreferences preferences;
+
 
 
     public int game_difficulty = DifficultyPage.difficulty;
@@ -464,6 +470,7 @@ public class GameStartPage extends AppCompatActivity{
     @Override
     protected void onStart(){
         super.onStart();
+
         //getAnagram();
         createTimer();
         timer = (EditText) findViewById(R.id.timer);
@@ -477,6 +484,7 @@ public class GameStartPage extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_start_page);
+
 
 
         //create sounds for right and wrong answers
@@ -642,7 +650,43 @@ public class GameStartPage extends AppCompatActivity{
 
     public void goToNextPage(View view) {
         if (TotalScreens >= NumScreens) {
-            
+            //int numMissed = 10 - NumRightAnswers;
+
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences preferences1 = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences preferences2 = PreferenceManager.getDefaultSharedPreferences(this);
+
+            String wordFoundCount = PreferenceManager.getDefaultSharedPreferences(this).getString("WordsFound", "0");
+            String gameCount = PreferenceManager.getDefaultSharedPreferences(this).getString("GamesPlayed", "0");
+            String wordMissCount = PreferenceManager.getDefaultSharedPreferences(this).getString("WordsMissed", "0");
+
+            int gameTotal = Integer.parseInt(gameCount);
+            int foundTotal = Integer.parseInt(wordFoundCount);
+            int missTotal = Integer.parseInt(wordMissCount);
+
+            wordsFound = foundTotal + NumRightAnswers;
+            wordsMissed = missTotal + NumSkipped;
+            gamesPlayed = gameTotal + 1;
+
+
+            // data stored for statistics page
+            String totalGames = Integer.toString(gamesPlayed);
+            String totalFound = Integer.toString(wordsFound);
+            String totalMissed = Integer.toString(wordsMissed);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("GamesPlayed", totalGames );
+            editor.apply();
+            SharedPreferences.Editor editor1 = preferences1.edit();
+            editor1.putString("WordsFound", totalFound);
+            editor1.apply();
+            SharedPreferences.Editor editor2 = preferences2.edit();
+            editor2.putString("WordsMissed", totalMissed);
+            editor2.apply();
+
+
+
+
+
             correct = NumRightAnswers;
             screens = 10;
             Intent intent = new Intent(GameStartPage.this, GameEndPage.class);
