@@ -9,35 +9,18 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.media.MediaPlayer;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Random;
-
-//http://stackoverflow.com/questions/8065532/how-to-randomly-pick-an-element-from-an-array
-//https://developer.android.com/
-//http://www.anagramgenius.com/gem1.html
-//http://stackoverflow.com/questions/8894258/fastest-way-to-iterate-over-all-the-chars-in-a-string
-
 import android.os.CountDownTimer;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-
 import com.vstechlab.easyfonts.EasyFonts;
-
-import org.w3c.dom.Text;
-
 
 
 public class GameStartPage extends AppCompatActivity{
@@ -58,58 +41,14 @@ public class GameStartPage extends AppCompatActivity{
     MediaPlayer correctSound;
     MediaPlayer wrongSound;
 
-    //Context context = getApplicationContext();
-
     public SharedPreferences preferences;
-
 
 
     public int game_difficulty = DifficultyPage.difficulty;
 
-    private Handler mHandler = new Handler();
 
 
-
-
-
-
-
-    public String[][] MainArray = {
-            {"estrngi" , "stinger", "Think Bee (1 word)"},
-            {"ydasrmade", "daydream", "Something you do in class (1 word)"},
-            {"covryitv", "victory", "Such a sweet taste (1 word)"},
-            {"taprie", "pirate", "Beware the sea (1 word)"},
-            {"toblet", "bottle", "Vessel of sorts (1 word)"},
-            {"reclea", "cereal", "Think morning (1 word)"},
-            {"keepsar", "speaker", "♪♪♪ (1 word)"},
-            {"meraca", "camera", "Selfie (1 word)"},
-            {"kibrc", "brick", "She's mighty mighty.. (1 word)"},
-            {"reniwt", "winter", "It's coming (1 word)"},
-            {"magrpro", "program", "I am your creator (1 word)"},
-            {"girefd", "fridge", "I am NOT running (1 word)"},
-            {"letebe", "beetle", "Let it be (1 word)"},
-            {"cajk dan lijl" , "jack and jill", "we just wanted some water.. (3 words)"},
-            {"radht davre", "darth vader", "we can rule the universe together (2 words)"},
-            {"og emoh", "go home", "What you want to do right now (2 words)"},
-            {"wro oyur otab", "row your boat", "life is but a dream (3 words)"},
-            {"epitar hisp", "pirate ship", "stolen, but still awesome (2 words)"},
-            {"starkeafb", "breakfast", "most important meal (1 word)"},
-            {"moxobob", "boombox", "portable and loud (1 word)"},
-            {"fliese itskc", "selfie stick", "don't bring on a roller-coaster (2 words)"},
-            {"tranima", "martian", "we come in peace (1 word)"},
-            {"ride flow", "dire wolf", "fluffy and dangerous (2 words)"},
-            {"icosal tob", "social bot", "you have a friend request (2 words)"},
-            {"hawssidhre", "dishwasher", "dirty or clean? (2 words)"},
-            {"rashgerpospe", "grasshopper", "spits 'blood'  (1 word)"},
-            {"Tom Marvolo Riddle", "i am lord voldemort", "Famous phrase in Harry Potter (4 words)"},
-            {"Old West Action", "clint eastwood", "Make my day... (3 words)"},
-            {"They see", "the eyes", "Most people have two (2 words)"},
-            {"A Gentlemen", "elegant man", "Very similar (2 words)"},
-            {"The Detectives", "detect thieves", "It's what they do (2 words)"},
-            {"Debit Card" , "bad credit", "If you aren't careful (2 words)"},
-            {"Schoolmaster", "the classroom", "Where they belong (2 words)"},
-            {"Listen", "silent", "what you must be for it to work (1 word)"},
-            {"Eleven Plus Two", "twelve plus one", "thirteen (3 words)"}};
+    public String[][] MainArray = {};
 
     public String[][] EasyArray = {{"estrngi" , "stinger", "Think Bee \n(1 word)", "unread"},
             {"ydasrmade", "daydream", "Something you do in class \n(1 word)", "unread"},
@@ -128,7 +67,7 @@ public class GameStartPage extends AppCompatActivity{
             {"lscdrmabe", "scrambled", "Like my eggs \n(1 word)", "unread"},
             {"zapiz", "pizza", "Everybody food \n(1 word)", "unread"},
             {"etrusosr", "trousers", "Fancy pants \n(1 word)", "unread"},
-            {"pceotmur", "computer", "Tech neccessity \n(1 word)", "unread"},
+            {"pceotmur", "computer", "Tech necessity \n(1 word)", "unread"},
             {"alpsma", "plasma", "Solid, liquid, gas,... \n(1 word)", "unread"},
             {"hoopt", "photo", "Camera baby \n(1 word)", "unread"},
             {"resup", "purse", "Feminine bag \n(1 word)", "unread"},
@@ -139,7 +78,7 @@ public class GameStartPage extends AppCompatActivity{
             {"wodrs", "sword", "A weapon \n(1 word)", "unread"},
             {"eestlivnoi", "television", "It's what you watch \n(1 word)", "unread"},
             {"tabo", "boat", "It floats \n(1 word)", "unread"},
-            {"tanir", "train", "On the rails \n(1 word)", "unread"},
+            {"tanir", "train", "Choo-Choo \n(1 word)", "unread"},
             {"ievom", "movie", "Visual experience \n(1 word)", "unread"},
             {"rsdipe", "spider", "Find on web \n(1 word)", "unread"},
             {"ucsmi", "music", "Audible fun \n(1 word)", "unread"},
@@ -169,12 +108,12 @@ public class GameStartPage extends AppCompatActivity{
             {"trid", "dirt", "Worm home \n(1 word)", "unread"},
             {"dancy", "candy", "Sweet tasting \n(1 word)", "unread"},
             {"lurer", "ruler", "Size determiner \n(1 word)", "unread"},
-            {"shrub", "brush", "Able to fix messy hair \n(1 word)", "unread"},
+            {"shrub", "brush", "Hair tamer \n(1 word)", "unread"},
             {"tone", "note", "Paper reminder \n(1 word)", "unread"},
             {"oofbtlal", "football", "Not always played with feet \n(1 word)", "unread"},
             {"rcosce", "soccer", "Popular foot-sport \n(1 word)", "unread"},
             {"emunbr", "number", "Used for counting \n(1 word)", "unread"},
-            {"tone", "note", "Paper reminder \n(1 word)", "unread"},
+            {"nildb", "blind", "Unforeseen \n(1 word)", "unread"},
             {"ramrke", "marker", "Writing instrument \n(1 word)", "unread"},
             {"locro", "color", "Everyone has a favorite \n(1 word)", "unread"},
             // 60
@@ -182,12 +121,12 @@ public class GameStartPage extends AppCompatActivity{
             {"orkc", "rock", "Hard and strong \n(1 word)", "unread"},
             {"hklac", "chalk", "Classic teacher tool \n(1 word)", "unread"},
             {"tskea", "steak", "Delicious meat \n(1 word)", "unread"},
-            {"hummosor", "mushroom", "Fungus \n(1 word)", "unread"},
+            {"hummosor", "mushroom", "I'm a fungi \n(1 word)", "unread"},
             {"erohs", "horse", "Old West transportation \n(1 word)", "unread"},
             {"staerot", "toaster", "Burns bread \n(1 word)", "unread"},
             {"elndbre", "blender", "Mixes and dices various things \n(1 word)", "unread"},
             {"hpnoe", "phone", "What you are looking at \n(1 word)", "unread"},
-            {"npaio", "npaio", "A grand instrument \n(1 word)", "unread"},
+            {"npaio", "piano", "A grand instrument \n(1 word)", "unread"},
             // 70
             {"igatur", "guitar", "Has multiple strings \n(1 word)", "unread"},
             {"rdmu", "drum", "Hit this for a beat \n(1 word)", "unread"},
@@ -195,14 +134,14 @@ public class GameStartPage extends AppCompatActivity{
             {"agem", "game", "For fun \n(1 word)", "unread"},
             {"edvoi", "video", "Moving photo \n(1 word)", "unread"},
             {"pilarena", "airplane", "One way to fly \n(1 word)", "unread"},
-            {"rukyte", "turkey", "Gobble gobble \n(1 word)", "unread"},
+            {"rukyte", "turkey", "Tasty land bird \n(1 word)", "unread"},
             {"muippnk", "pumpkin", "Popular pie \n(1 word)", "unread"},
             {"ucase", "sauce", "Makes some food even better \n(1 word)", "unread"},
             {"dohayil", "holiday", "Spent with family \n(1 word)", "unread"},
             // 80
-            {"poatlp", "laptop", "Portable computer \n(1 word)", "unread"},
+            {"poatlp", "laptop", "Portable system \n(1 word)", "unread"},
             {"seewart", "sweater", "Warm and possibly ugly \n(1 word)", "unread"},
-            {"ajcekt", "jacket", "worn for warmth \n(1 word)", "unread"},
+            {"ajcekt", "jacket", "Worn for warmth \n(1 word)", "unread"},
             {"oseh", "shoe", "Always sold in pairs \n(1 word)", "unread"},
             {"botso", "boots", "Durable foot guards \n(1 word)", "unread"},
             {"onlcw", "clown", "Funny or terrifying \n(1 word)", "unread"},
@@ -214,8 +153,8 @@ public class GameStartPage extends AppCompatActivity{
             {"owdo", "wood", "Construction material \n(1 word)", "unread"},
             {"emtla", "metal", "Music genre \n(1 word)", "unread"},
             {"hcoocetal", "chocolate", "Brown and tasty \n(1 word)", "unread"},
-            {"gitnh", "night", "Not day \n(1 word)", "unread"},
-            {"ornimgn", "morning", "Before noon \n(1 word)", "unread"},
+            {"gitnh", "night", "Sunless \n(1 word)", "unread"},
+            {"ornimgn", "morning", "A new day \n(1 word)", "unread"},
             {"apncake", "pancake", "Goes well with syrup \n(1 word)", "unread"},
             {"aocbn", "bacon", "Many pigs final form \n(1 word)", "unread"},
             {"nksae", "snake", "Scale covered \n(1 word)", "unread"},
@@ -223,20 +162,18 @@ public class GameStartPage extends AppCompatActivity{
             {"tware", "water", "Necessary to live \n(1 word)", "unread"},};
             // 100
 
-
-
-    public String[][] MediumArray = {{"cajk dan lijl" , "jack and jill", "We just wanted some water.. \n(3 words)", "unread"},
-            {"radht davre", "darth vader", "We can rule the universe together \n(2 words)", "unread"},
-            {"og emoh", "go home", "What you want to do right now \n(2 words)", "unread"},
-            {"wro oyur otab", "row your boat", "Life is but a dream \n(3 words)", "unread"},
-            {"epitar hisp", "pirate ship", "Stolen, but still awesome \n(2 words)", "unread"},
+    public String[][] MediumArray = {{"aodedotnr" , "deodorant", "Odor cure \n(1 word)", "unread"},
+            {"ilgsrebaht", "lightsaber", "Powerful energy sword \n(1 word)", "unread"},
+            {"dohemame", "homemade", "Do it yourself \n(1 word)", "unread"},
+            {"bullyla", "lullaby", "Sweet dreams \n(1 word)", "unread"},
+            {"luckbashwers", "swashbuckler", "A Hero of sorts \n(1 word)", "unread"},
             {"starkeafb", "breakfast", "Most important meal \n(1 word)", "unread"},
             {"moxobob", "boombox", "Portable and loud \n(1 word)", "unread"},
-            {"fliese itskc", "selfie stick", "Don't bring on a roller-coaster \n(2 words)", "unread"},
+            {"ramencama", "cameraman", "Behind the lens \n(1 word)", "unread"},
             {"tranima", "martian", "We come in peace \n(1 word)", "unread"},
-            {"ride flow", "dire wolf", "Fluffy and dangerous \n(2 words)", "unread"},
+            {"flowreew", "werewolf", "Fluffy and dangerous \n(1 word)", "unread"},
             //10
-            {"icosal tob", "social bot", "You have a friend request \n(2 words)", "unread"},
+            {"grillbentee", "belligerent", "Hostile and aggressive \n(1 words)", "unread"},
             {"hawssidhre", "dishwasher", "Dirty or clean? \n(1 words)", "unread"},
             {"rashgerpospe", "grasshopper", "Spits 'blood' \n(1 word)", "unread"},
             {"focinunso", "confusion", "Wait, what? \n(1 word)", "unread"},
@@ -252,16 +189,16 @@ public class GameStartPage extends AppCompatActivity{
             {"ryeknow", "newyork", "City and state \n(1 word)", "unread"},
             {"capcroupfin", "frappuccino", "Fancy drink \n(1 word)", "unread"},
             {"rodentthrums", "thunderstorm", "Loud weather \n(1 word)", "unread"},
-            {"dubbenk", "bunk bed", "Double decker \n(2 words)", "unread"},
+            {"deadheb", "bedhead", "Sleeping side effect \n(1 word)", "unread"},
             {"aregrin", "earring", "Shiny accessory \n(1 word)", "unread"},
-            {"sbutcokes", "tube socks", "80s fitness apparel \n(2 words)", "unread"},
-            {"troutckw", "tow truck", "For when you're car breaks \n(2 words)", "unread"},
+            {"beatswand", "sweatband", "80s fitness apparel \n(1 word)", "unread"},
+            {"rippetmpn", "peppermint", "Fresh and strong scent \n(1 word)", "unread"},
             {"napspewer", "newspaper", "Morning delivery \n(1 word)", "unread"},
             // 30
             {"snnghviagkit", "thanksgiving", "The day turkeys dread \n(1 word)", "unread"},
             {"trhcsiasm", "christmas", "Present day \n(1 word)", "unread"},
             {"lahlonewe", "halloween", "Trick or treat \n(1 word)", "unread"},
-            {"omnlpoyo", "monopoly", "Never play with family \n(1 word)", "unread"},
+            {"omnlpoyo", "monopoly", "Buy property, collect rent \n(1 word)", "unread"},
             {"ifmileet", "lifetime", "As long as you live \n(1 word)", "unread"},
             {"scsorwlka  ", "crosswalk", "Watch for children \n(1 word)", "unread"},
             {"ominolght", "moonlight", "See in the dark \n(1 word)", "unread"},
@@ -278,7 +215,7 @@ public class GameStartPage extends AppCompatActivity{
             {"douedgnunrr", "underground", "Buried \n(1 word)", "unread"},
             {"oeonhyonm", "honeymoon", "Newly married \n(1 word)", "unread"},
             {"uomshrentdrt", "thunderstorm", "Loud, gloomy, and wet \n(1 word)", "unread"},
-            {"eaiaplnr", "airplane", "Quick travel method \n(1 word)", "unread"},
+            {"iaspotrntotarn", "transportation", "Movement between places \n(1 word)", "unread"},
             // 50
             {"sbeybiattr", "babysitter", "Popular teenage job \n(1 word)", "unread"},
             {"muhbrgrea", "hamburger", "Cow product \n(1 word)", "unread"},
@@ -288,14 +225,14 @@ public class GameStartPage extends AppCompatActivity{
             {"pkaremcae", "pacemaker", "Keeps the blood flowing \n(1 word)", "unread"},
             {"deewken", "weekend", "Always looking forward to it \n(1 word)", "unread"},
             {"nueadreg", "underage", "Too young \n(1 word)", "unread"},
-            {"oowbormk", "bookworm", "Love to read \n(1 word)", "unread"},
+            {"oowbormk", "bookworm", "Addicted to reading \n(1 word)", "unread"},
             {"krofflit", "forklift", "Heavy lifting machine \n(1 word)", "unread"},
             // 60
             {"iefulargd", "lifeguard", "No running!!! \n(1 word)", "unread"},
-            {"eatfrawll", "waterfall", "Niagra Falls \n(1 word)", "unread"},
+            {"eatfrawll", "waterfall", "Niagara Falls \n(1 word)", "unread"},
             {"obmkoark", "bookmark", "Holds your place \n(1 word)", "unread"},
             {"rlputaaruens", "supernatural", "Not normal \n(1 word)", "unread"},
-            {"oofkhbles", "bookshelf", "Needs dusting \n(1 word)", "unread"},
+            {"oofkhbles", "bookshelf", "Literature storage \n(1 word)", "unread"},
             {"okyeelh", "keyhole", "Peep through to see \n(1 word)", "unread"},
             {"pkacacbk", "backpack", "Student storage \n(1 word)", "unread"},
             {"hfreeoad", "forehead", "Between hair and eyes \n(1 word)", "unread"},
@@ -306,14 +243,14 @@ public class GameStartPage extends AppCompatActivity{
             {"pabakscec", "backspace", "Remove previous key \n(1 word)", "unread"},
             {"roduengd", "underdog", "Unfavored \n(1 word)", "unread"},
             {"cbakeirf", "backfire", "Unexpected \n(1 word)", "unread"},
-            {"iatseutmerend", "underestimate", " \n(1 word)", "unread"},
+            {"iatseutmerend", "underestimate", "To expect less \n(1 word)", "unread"},
             {"yieegsth", "eyesight", "If lost, you're lost \n(1 word)", "unread"},
             {"nsauebth", "sunbathe", "Burning and relaxing \n(1 word)", "unread"},
             {"aunremdr", "underarm", "Prone to sweat \n(1 word)", "unread"},
             {"erpuohesr", "superhero", "Has special powers \n(1 word)", "unread"},
             {"mapireran", "repairman", "Paid to fix \n(1 word)", "unread"},
             // 80
-            {"jlacacbkk", "blackjack", "Popular game \n(1 word)", "unread"},
+            {"jlacacbkk", "blackjack", "Hit or stand \n(1 word)", "unread"},
             {"lrlmaobo", "ballroom", "Dancing area \n(1 word)", "unread"},
             {"elaidned", "deadline", "Due date \n(1 word)", "unread"},
             {"audtpe", "update", "Keep in the loop \n(1 word)", "unread"},
@@ -339,7 +276,7 @@ public class GameStartPage extends AppCompatActivity{
     public String[][] HardArray = {{"Tom Marvolo Riddle", "i am lord voldemort", "Famous phrase in Harry Potter \n(4 words)", "unread"},
             {"Old West Action", "clint eastwood", "Make my day... \n(2 words)", "unread"},
             {"They see", "the eyes", "Most people have two \n(2 words)", "unread"},
-            {"A Gentlemen", "elegant man", "Very similar \n(2 words)", "unread"},
+            {"Elegant man", "a gentleman", "Holds the door \n(2 words)", "unread"},
             {"The Detectives", "detect thieves", "It's what they do \n(2 words)", "unread"},
             {"Debit Card" , "bad credit", "If you aren't careful \n(2 words)", "unread"},
             {"Schoolmaster", "the classroom", "Where they belong \n(2 words)", "unread"},
@@ -347,7 +284,7 @@ public class GameStartPage extends AppCompatActivity{
             {"Eleven Plus Two", "twelve plus one", "Thirteen \n(3 words)", "unread"},
             {"Coins Kept", "in pocket", "The perfect spot \n(2 words)", "unread"},
             //10
-            {"Alloy immure wry", "will you marry me", "THE question \n(3 words)", "unread"},
+            {"Alloy immure wry", "will you marry me", "THE question \n(4 words)", "unread"},
             {"Violence Only You", "you only live once", "The motto \n(4 words)", "unread"},
             {"Guise Yon Root", "i got your nose", "Childhood trickery \n(4 words)", "unread"},
             {"Theme Ye Ill Witty", "with my little eye", "I spy \n(4 words)", "unread"},
@@ -406,7 +343,7 @@ public class GameStartPage extends AppCompatActivity{
             {"rhad lilp ot llwsawo", "hard pill to swallow", "Difficult to accept \n(4 words)", "unread"},
             {"ihgh nda yrd", "high and dry", "Left behind \n(3 words)", "unread"},
             {"tih lebwo teh tleb", "hit below the belt", "Cheap shot \n(4 words)", "unread"},
-            {"ni a lcpkie", "in a pickle", "In a difficult predicament \n(3 words)", "unread"},
+            {"ni a lcpkie", "in a pickle", "In a tough situation \n(3 words)", "unread"},
             {"gji si pu", "jig is up", "Been found out \n(3 words)", "unread"},
             {"mjipngu teh ung", "jumping the gun", "Starting too early \n(3 words)", "unread"},
             {"rngi ayn leslb", "ring any bells", "Remind you of anything? \n(3 words)", "unread"},
@@ -422,14 +359,14 @@ public class GameStartPage extends AppCompatActivity{
             {"tup a okcs ni ti", "put a sock in it", "Would you shut up? \n(4 words)", "unread"},
             {"arni no ryou preaad", "rain on your parade", "Ruining a happy moment \n(4 words)", "unread"},
             {"osn fo a gnu", "son of a gun", "A bad person \n(4 words)", "unread"},
-            {"cnkkelu nowd", "knuckle down", "Applying yourself \n(2 words)", "unread"},
+            {"cnkkelu nowd", "knuckle down", "Apply yourself \n(2 words)", "unread"},
             //80
             {"etl rhe pri", "let her rip", "Permission to start \n(3 words)", "unread"},
             {"rhowt ni eth owetl", "throw in the towel", "Give up \n(4 words)", "unread"},
             {"dunre eht tweerah", "under the weather", "Feeling unwell \n(3 words)", "unread"},
             {"nreud ruyo neso", "under your nose", "Right in front of you \n(3 words)", "unread"},
             {"iht hte aodr", "hit the road", "Leave \n(3 words)", "unread"},
-            {"eplda ot hte mealt", "pedal to the metal", "Floor it \n(3 words)", "unread"},
+            {"eplda ot hte mealt", "pedal to the metal", "Floor it \n(4 words)", "unread"},
             {"iht eht tlsgih", "hit the lights", "Turn off the lights \n(3 words)", "unread"},
             {"dlho uyro ahbrte", "hold your breath", "To wait on something \n(3 words)", "unread"},
             {"egpedl fo leianlgeca", "pledge of allegiance", "Spoken in school everyday \n(3 words)", "unread"},
@@ -451,8 +388,6 @@ public class GameStartPage extends AppCompatActivity{
     public EditText timer;
     public CountDownTimer myTimer;
 
-
-
     public void createTimer(){
 
          myTimer = new CountDownTimer(60000, 1000) {
@@ -471,7 +406,6 @@ public class GameStartPage extends AppCompatActivity{
     protected void onStart(){
         super.onStart();
 
-        //getAnagram();
         createTimer();
         timer = (EditText) findViewById(R.id.timer);
         timer.setTypeface(EasyFonts.caviarDreamsBold(this));
@@ -484,8 +418,6 @@ public class GameStartPage extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_start_page);
-
-
 
         //create sounds for right and wrong answers
         correctSound = MediaPlayer.create(GameStartPage.this, R.raw.positive);
@@ -509,7 +441,6 @@ public class GameStartPage extends AppCompatActivity{
         // anagram grabbed randomly from dictionary
         getAnagram();
 
-        //DictItem = new Random().nextInt(MainArray.length);
         TextView anagramText = (TextView) findViewById(R.id.textView7);
         anagramText.setTypeface(EasyFonts.caviarDreamsBold(this));
         anagramText.setText("Anagram: \n" + MainArray[DictItem][0]);
@@ -533,11 +464,6 @@ public class GameStartPage extends AppCompatActivity{
         Button submitButton = (Button) findViewById(R.id.button);
         submitButton.setTypeface(EasyFonts.caviarDreamsBold(this));
 
-
-
-        //createTimer();
-        //timer = (EditText) findViewById(R.id.timer);
-        //timer.setTypeface(EasyFonts.caviarDreamsBold(this));
     }
 
     public void getAnagram(){
@@ -582,7 +508,6 @@ public class GameStartPage extends AppCompatActivity{
 
         EditText editText = (EditText) findViewById(R.id.textView9);
         String answer = editText.getText().toString();
-
 
         if(MainArray[DictItem][1].equals(answer)) {
             NumRightAnswers += 1;
@@ -650,7 +575,6 @@ public class GameStartPage extends AppCompatActivity{
 
     public void goToNextPage(View view) {
         if (TotalScreens >= NumScreens) {
-            //int numMissed = 10 - NumRightAnswers;
 
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences preferences1 = PreferenceManager.getDefaultSharedPreferences(this);
@@ -682,10 +606,6 @@ public class GameStartPage extends AppCompatActivity{
             SharedPreferences.Editor editor2 = preferences2.edit();
             editor2.putString("WordsMissed", totalMissed);
             editor2.apply();
-
-
-
-
 
             correct = NumRightAnswers;
             screens = 10;
@@ -727,5 +647,4 @@ public class GameStartPage extends AppCompatActivity{
             createTimer();
         }
     }
-
 }
