@@ -3,7 +3,6 @@ package net.androidbootcamp.anagramproject;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -37,11 +36,18 @@ public class GameStartPage extends AppCompatActivity{
     public int gamesPlayed = 0;
     public int wordsFound = 0;
     public int wordsMissed = 0;
+    public boolean paused = false;
+    public long time = 60000;
+    public long currentTime;
+    public boolean wasPaused = false;
+    public boolean timeout = false;
 
     MediaPlayer correctSound;
     MediaPlayer wrongSound;
 
     public SharedPreferences preferences;
+
+    public Vibrator vibe;
 
 
     public int game_difficulty = DifficultyPage.difficulty;
@@ -389,17 +395,24 @@ public class GameStartPage extends AppCompatActivity{
     public CountDownTimer myTimer;
 
     public void createTimer(){
+        if(!paused){
+            myTimer = new CountDownTimer(time, 1000) {
+                public void onTick(long millisUntilFinished) {
+                        timer.setText("Time:\n" + millisUntilFinished / 1000);
+                        currentTime = millisUntilFinished;
+                }
+                public void onFinish() {
+                    NumSkipped++;
+                    showIncorrectToast("Incorrect");
+                    wrongSound.start();
+                    vibe.vibrate(50);
+                    View view = findViewById(R.id.button2);
+                    goToNextPage(view);
 
-         myTimer = new CountDownTimer(60000, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-                timer.setText("Time:\n" + millisUntilFinished / 1000);
-            }
-            public void onFinish() {
-                View view = findViewById(R.id.button2);
-                goToNextPage(view);
-            }
-        }.start();
+                }
+            }.start();
+        }
     }
 
     @Override
@@ -411,8 +424,30 @@ public class GameStartPage extends AppCompatActivity{
         timer.setTypeface(EasyFonts.caviarDreamsBold(this));
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
 
+        paused = true;
+        myTimer.cancel();
+        wasPaused = true;
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        paused = false;
+        checkTimer();
+    }
+
+    public void checkTimer(){
+        if (wasPaused){
+            createTimer();
+            wasPaused = false;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -422,6 +457,11 @@ public class GameStartPage extends AppCompatActivity{
         //create sounds for right and wrong answers
         correctSound = MediaPlayer.create(GameStartPage.this, R.raw.positive);
         wrongSound = MediaPlayer.create(GameStartPage.this, R.raw.negative);
+
+        Context context = this;
+
+        // create vibration capabilities
+        vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 
         //set anagram dictionary based on difficulty value chosen by user
         if (game_difficulty == 1){
@@ -501,10 +541,10 @@ public class GameStartPage extends AppCompatActivity{
 
 
     public void checkIfRight(View view){
-        Context context = this;
-
-        // create vibration capabilities
-        Vibrator vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+//        Context context = this;
+//
+//        // create vibration capabilities
+//        Vibrator vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 
         EditText editText = (EditText) findViewById(R.id.textView9);
         String answer = editText.getText().toString();

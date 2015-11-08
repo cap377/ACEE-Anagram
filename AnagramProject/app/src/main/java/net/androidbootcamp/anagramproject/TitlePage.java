@@ -13,9 +13,13 @@ import android.widget.TextView;
 
 import com.vstechlab.easyfonts.EasyFonts;
 
+
+
 //http://android-er.blogspot.com/2012/02/apply-animation-on-button.html
 
 public class TitlePage extends AppCompatActivity {
+    // public button used in example for onPause and onResume functions
+    public Button button1;
 
 
     @Override
@@ -27,7 +31,7 @@ public class TitlePage extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setTypeface(EasyFonts.caviarDreamsBold(this));
 
-        Button button1 = (Button) findViewById(R.id.startbutton);
+        button1 = (Button) findViewById(R.id.startbutton);
         button1.setTypeface(EasyFonts.caviarDreamsBold(this));
 
         Button button2 = (Button) findViewById(R.id.aboutbutton);
@@ -77,6 +81,29 @@ public class TitlePage extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        //changes font when paused
+        //button1.setTypeface(EasyFonts.androidNationItalic(this));
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        //reverts changes to fonts when resumed from paused state
+        //button1.setTypeface(EasyFonts.caviarDreamsBold(this));
+
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();  // Always call the superclass
+
+        // Stop method tracing that the activity started during onCreate()
+        android.os.Debug.stopMethodTracing();
     }
 
     @Override

@@ -7,6 +7,7 @@
     tools:context="net.androidbootcamp.anagramproject.GameStartPage"
     android:background="@drawable/beach1"
     android:descendantFocusability="beforeDescendants"
+    android:keepScreenOn="true"
     android:focusableInTouchMode="true">
 
 
